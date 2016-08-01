@@ -529,17 +529,36 @@ def admin_post_add(slug=""):
 	if request.method == 'POST':
 		try:
 			if form.validate() == False:
-		   		flash('All fields are required.')
+		   		flash('Please try to fill form again.')
 		   		return redirect(url_for('admin_post_add'))
 		   	else:
 		   		obj=Post.query.filter_by(slug=slug)
+		   		for post in obj:
+		   			old_images=post.images
 		   		now = str(datetime.now())
 				now= now.replace(':',"",10).replace(' ','',4).replace('.','',5).replace('-','',5)
 		   		result = request.form
 				filename=str(request.form['txt_temp_image'])
 				if not slug:
 		   			if file:
-		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,request.form["all_images"],request.form["price"],request.form["map"],request.form["short_description"])
+		   				images=''
+		   				help=1
+	   					uploaded_files = flask.request.files.getlist("other_image[]")
+		   				# return filename
+		   				for f in uploaded_files:
+		   					imagename = secure_filename(f.filename)
+		   					if imagename!="":
+			   					f.save(os.path.join(app.config['UPLOAD_FOLDER'], now+"-"+imagename))
+			   					if help==1:
+			   						images=now+"-"+imagename
+			   					else:
+			   						images=images+"$$$$$"+(now+"-"+imagename)
+			   					help=help+1
+			   			if request.form["price"]=="":
+			   				price=0
+			   			else:
+			   				price=int(request.form["price"])
+		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"])
 			        	status=Post.add(obj)
 				        if not status:
 				            flash("Post added successfully")
@@ -552,18 +571,32 @@ def admin_post_add(slug=""):
 		   			if not not file: 
 		   				images=''
 		   				help=1
-	   					now = str(datetime.now())
-						now= now.replace(':',"",10).replace(' ','',4).replace('.','',5).replace('-','',5)
-		   				uploaded_files = flask.request.files.getlist("other_image[]")
+	   					uploaded_files = flask.request.files.getlist("other_image[]")
+		   				# return filename
 		   				for f in uploaded_files:
-		   					filename = secure_filename(f.filename)
-		   					if filename!="":
-			   					f.save(os.path.join(app.config['UPLOAD_FOLDER'], now+"-"+filename))
+		   					imagename = secure_filename(f.filename)
+		   					if imagename!="":
+			   					f.save(os.path.join(app.config['UPLOAD_FOLDER'], now+"-"+imagename))
 			   					if help==1:
-			   						images=now+"-"+filename
+			   						images=now+"-"+imagename
 			   					else:
-			   						images=images+"$$$$$"+now+"-"+filename
+			   						images=images+"$$$$$"+(now+"-"+imagename)
 			   					help=help+1
+			   			if old_images!='':
+				   			if images!='':
+				   				images=old_images+"$$$$$"+images
+				   			else:
+				   				images=old_images
+			   			#keep old other images
+
+				   		for post in obj:
+				   			old_images=post.images
+				   		arr_to_remove=(request.form['all_removed_images']).split("$$$$$")
+				   		for item in arr_to_remove:
+				   			images=images.replace(item,'')
+				   		images=images.replace('$$$$$$$$$$','$$$$$')
+				   		#end keep old images
+				   		# return old_images
 	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'price':request.form["price"],'short_description':request.form["short_description"],'map':request.form["map"] })
 	   					status = db.session.commit()
 		   				if not status:
@@ -650,7 +683,7 @@ def admin_page_add(slug=''):
 	if request.method == 'POST':
 		try:
 			if form.validate() == False:
-		   		flash('All fields are required !'	)
+		   		flash('Please try to fill form again !'	)
 		   		return redirect(url_for('admin_page_add'))
 		   	else:
 		   		if not slug:
