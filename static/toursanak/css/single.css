@@ -1,0 +1,92 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Bitter:400);
+
+html,body {
+	height 						: 100%;
+    background-size 			: cover;
+    color 						: #444;
+    font-family 				: 'Lato', sans-serif;
+}
+.banner {
+	width 						: 100%;
+	height 						: auto;
+	background-color 			: green;
+	margin-top 					: 50px;
+}
+.bg-overlay {
+    /*background 					: linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.3)), url("../image/1.jpg");*/
+    background-repeat 			: no-repeat;
+    background-size 			: cover;
+    background-position 		: center center;
+    color 						: #fff;
+    height 						: 300px;
+    padding-top 				: 50px;
+    border-radius 				: 3px;
+}
+.list {
+	background-color 			: RGBA(234, 234, 234, 0.8);
+}
+.contact {
+	padding-top 				: 10px;
+	padding-bottom 				: 10px;
+	font-size 					: 16px;
+	color 						: green;
+}
+.desc {
+	font-size 					: 19px;
+	font-weight 				: 200;
+	line-height 				: 1.5;
+}
+.row-tip {
+	border-bottom 				: solid thin rgba(203, 189, 189, 0.73) !important;
+}
+.hidden {
+	display 					: block ! important;
+}
+.price {
+	font-size 					: 20px;
+	font-weight 				: 300;
+	color 						: white;
+	background-color 			: #282256;
+}
+.btn1 {
+	width 						: 100%;
+	border-radius				: 2px;
+	padding 					: 13px 25px 12px 25px;
+	font-size 					: 18px;
+	font-weight 				: 500;
+	background-color 			: rgba(24, 90, 3, 0.88);
+	color 						: #F6F7F2;
+	margin-top 					: 15px;
+}
+.btn1:hover {
+	background-color 			: #3D8EB9;
+    -webkit-transition 			: background-color 1000ms linear;
+    -moz-transition				: background-color 1000ms linear;
+    -o-transition 				: background-color 1000ms linear;
+    -ms-transition 				: background-color 1000ms linear;
+    transition 					: background-color 1000ms linear;
+    color 						: white;
+}
+
+.bg-overlay-small {
+    background 					: linear-gradient(rgba(83, 84, 81, 0.8), rgba(53, 54, 62, 0.15)), url("../image/tuktuk.png");
+    background-repeat           : no-repeat;
+    background-size 			: cover;
+    background-position 		: center center;
+    color 						: #fff;
+    height 						: 400px;
+    padding-top 				: 50px;
+    margin-top 					: 1px;
+    background-size 			: cover;
+    background-position 		: center;
+    border-radius 				: 0px;
+}
+.title {
+	font-size 					: 30px;
+	font-weight 				: bold;
+	padding 					: 15px;
+}
+.title :hover {
+	text-decoration 			: none;
+}

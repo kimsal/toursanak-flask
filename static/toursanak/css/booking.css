@@ -1,0 +1,173 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Bitter:400);
+
+html,body {
+	height 				: 100%;
+    background-size 	: cover;
+    color 				: #444;
+    font-family 		: 'Lato', sans-serif;
+}
+@media screen and (max-width: 600px) {
+	form {
+		padding 		: 0px;
+	}
+	.title-log {
+	    padding 		: 0px 0px;
+	    font-size 		: 19px;
+	    line-height 	: 10px;
+	    font-weight 	: 300;
+	    color 			: #1e2024;
+	    margin-bottom 	: 40px;
+	    text-align 		: center;
+	}
+	.container {
+	    padding-right 	: 0px;
+	    padding-left 	: 0px;
+	    margin-right 	: auto;
+	    margin-left 	: auto;
+	}
+}
+.banner {
+	width 				: 100%;
+	height 				: auto;
+	background-color 	: green;
+	margin-top 			: 50px;
+}
+.bg-overlay {
+    background 			: linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.3)), url("../image/1.jpg");
+    background-repeat  	: no-repeat;
+    background-size 	: cover;
+    background-position	: center center;
+    color 				: #fff;
+    height 				: 300px;
+    padding-top 		: 50px;
+    border-radius 		: 3px;
+}
+.list {
+	background-color 	: RGBA(234, 234, 234, 0.8);
+}
+.contact {
+	padding-top 		: 10px;
+	padding-bottom 		: 10px;
+	font-size 			: 16px;
+	color 				: green;
+}
+.desc {
+	font-size 			: 19px;
+	font-weight 		: 200;
+	line-height 		: 1.5;
+}
+.row-tip {
+	border-bottom 		: solid thin rgba(203, 189, 189, 0.73) !important;
+}
+.hidden {
+	display 			: block ! important;
+}
+.price {
+	font-size 			: 20px;
+	font-weight 		: 300;
+	color 				: white;
+	background-color 	: #282256;
+}
+.btn1 {
+	width 				: 100%;
+	border-radius 		: 2px;
+	padding 			: 13px 25px 12px 25px;
+	font-size			: 18px;
+	font-weight 		: 500;
+	background-color 	: rgba(24, 90, 3, 0.88);
+	color: #F6F7F2;
+	margin-top: 15px;
+}
+.btn1:hover {
+	background-color	: #3D8EB9;
+    -webkit-transition 	: background-color 1000ms linear;
+    -moz-transition 	: background-color 1000ms linear;
+    -o-transition 		: background-color 1000ms linear;
+    -ms-transition 		: background-color 1000ms linear;
+    transition 			: background-color 1000ms linear;
+    color 				: white;
+}
+
+/*form booking*/
+
+*, *:before, *:after {
+  box-sizing 			: border-box;
+}
+
+html {
+	overflow-y 			: scroll; 
+}
+
+body {
+  background 			:$body-bg;
+  font-family 			: 'Titillium Web', sans-serif;
+}
+.title-log {
+	padding 			: 16px 20px;
+	font-size 			: 36px;
+	line-height 		: 42px;
+	font-weight 		: 300;
+	color 				: #1e2024;
+	margin-bottom 		: 40px;
+	text-align 			: center;
+}
+
+.input-type {
+	border-radius 		: 2px;
+    width 				: 100%;
+    padding 			: 16px 20px;
+    margin 				: 10px 0;
+    box-sizing 			: border-box;
+    border 				: 1px solid RGBA(85, 85, 85, 0.2);
+    outline 			: none;
+    color 				: #ab9c9c;
+    background-color 	: none;
+}
+.input-type:focus {
+    background-color 	: RGBA(231, 231, 231, 0.18);
+    background-color 	: rgba(217,219,223,0.25);
+    color 				: #282830;
+}
+
+
+h1 {
+  text-align 			: center;
+  color 				: $white;
+  font-weight 			: $thin;
+  margin 				: 0 0 40px;
+}
+.form {
+	padding-top 		: 150px;
+	padding 			: 16px 20px;
+	margin 				: 10px 0;
+}
+.btn1 {
+	width 				: 100%;
+	border-radius 		: 2px;
+	padding 			: 13px 25px 12px 25px;
+	font-size 			: 18px;
+	font-weight 		: 500;
+	background-color 	: rgba(24, 90, 3, 0.88);
+	color 				: #F6F7F2;
+	margin-top 			: 15px;
+	font-weight 		: 200;
+	cursor 				: default;
+}
+.choose {
+	font-size 			: 22px;
+	font-weight 		: 200;
+}
+@media screen and (max-width: 600px) {
+	.form {
+		padding 		: 2px;
+	}
+}
+.frm {
+	background 			: rgb(246, 247, 242) none repeat scroll 0% 0%;
+	border 				: thin solid rgba(188, 237, 192, 0.6);
+	padding-top 		: 53px;
+	margin-top 			: 20px;
+	margin-bottom 		: 20px;
+	border-radius 		: 2px;
+}
