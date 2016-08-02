@@ -30,6 +30,10 @@
   tr td img{
     margin-top:10px;
   }
+  input[type="file"] {
+    display: block;
+    margin-right: 5px;
+  }
 </style>
 <script type="text/javascript">
   var img_no=0;
@@ -132,7 +136,7 @@
                                 </div>
                                 
                                 
-                                <!--phos add feature image-->
+                                <!-- add feature image-->
 
                                 <div class="form-group">
                                   <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><br/>
@@ -182,7 +186,7 @@
                                   <table id="imgs">
                                     <tr>
                                       <td>
-                                        <input type="file" name="other_image[]" multiple=""  class="other_image1"/>
+                                        <input class="btn btn-default" type="file" name="other_image[]" multiple=""  class="other_image1"/>
                                       </td>
                                       <td>
                                       <img src="/static/images/no image.jpg" class="img-1 img-responsive" style="max-width:100px;">

@@ -279,3 +279,20 @@ form > li{
 .fa-pencil-square-o{
     font-size: 20px;
 }
+.form-control {
+    border-radius: 1px;
+}
+.form-control:focus {
+    border-color: #e1e6ec;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0),0 0 0px rgba(255, 255, 255, 0.6);
+}
+.other_image {
+    height: 50px;
+    background-color: #60646D;
+    color: white;
+    font-weight: bold;
+    line-height: 50px;
+    border-radius: 2px;
+}
