@@ -10,15 +10,24 @@
 	</div>
 </div>
 <div class="container">
+<br/>
 	<div class="row ">
 		{{page.description|safe}}
 	</div>
-	<div class="row">
-		<center><h2 class="myh4">Our Team</h2></center>
-		<hr/>
-	</div>
+
+	<div style="height:50px;"></div>
+	{%if page.title=="ABOUT"%}
+		{%if members.count>0%}
+			<div class="row">
+				<center><h2 class="myh4"><b>Our Team</b></h2></center>
+				<hr/>
+			</div>
+		{%endif%}
+		<div style="height:50px;"></div>
+	{%endif%}
+
 </div>
-{%endfor%}
+{%if page.title=="ABOUT"%}
 <div class="container">
 	<!-- Team Members Row -->
 	<div class="row no">
@@ -33,4 +42,6 @@
 		{%endfor%}
 	</div>
 </div>
+{%endif%}
+{%endfor%}
 {% include template_name+'/footer.html' %} 

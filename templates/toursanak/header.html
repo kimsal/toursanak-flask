@@ -63,15 +63,15 @@
 
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/menu.css">
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/coreSlider.css">
-	<link rel="stylesheet" type="text/css" href="assets/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/assets/animate.css">
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/footer.css">
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3//static/{{template_name}}/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<!--Script start-->
 	<script type="text/javascript" src="/static/{{template_name}}/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/static/{{template_name}}/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/{{template_name}}/js/script.js"></script>
 	<script type="text/javascript" src="/static/{{template_name}}/js/sticky.js"></script>
-	<script type="text/javascript" src="assets/viewportchecker.js"></script>
+	<script type="text/javascript" src="/static/{{template_name}}/assets/viewportchecker.js"></script>
 	<script type="text/javascript" src="/static/{{template_name}}/js/coreSlider.js"></script>
 	
 </head>
@@ -101,7 +101,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-right" action="/search/" method="GET">
 	           		<div class="input-group">
-						<input class="form-control" placeholder="Search..." id="search" name="q" value="" type="text">
+						<input class="form-control" placeholder="Search..." id="search" name="q" value="" type="text" required="">
 	                  	<div class="input-group-btn">
 	                    	<button type="submit" class="btn btn-success"><span  class="fa fa-search" aria-hidden="true"></span></button>
 	                  	</div>

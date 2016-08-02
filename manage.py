@@ -1053,7 +1053,7 @@ def single(slug='',pagination=1):
 					status = db.session.commit()
 					session['amoogli_view'] = (str(session.get('amoogli_view')))+","+slug
 		elif page_object.count()>0:
-			members=Member.query.all()
+			members=Member.query.order_by(Member.id.desc()).all()
 			return render_template(template+"/page.html",members=members,page_name="page",page_object=page_object)
 		else:
 			category=Category.query.filter_by(slug=slug)

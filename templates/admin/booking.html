@@ -40,6 +40,7 @@
                                       <th>Name</th>
                                       <th class="hidden-xs">Email</th>
                                       <th class="hidden-xs">Phone</th>
+                                      <th class="hidden-xs">Detail</th>
                                       <th class="hidden-xs">Tour
                                       </th>
 <!--                                       <th class="hidden-xs">Amount</th> -->
@@ -64,6 +65,9 @@
 	                                          {{booking.phone}}
 	                                      </td>
 	                                      <td class="hidden-xs">
+	                                          {{booking.detail}}
+	                                      </td>
+	                                      <td class="hidden-xs">
 	                                      <!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
 	                                      <a href="/{{booking.post.slug}}" target="_blank">
 	                                      	{{booking.post.title|truncate(30)}}
@@ -79,7 +83,7 @@
 	                                      </td>
 	                                      <td>
 	                                        <!-- <a href="/admin/post/edit/{{booking.slug}}" class="">Edit</a> - -->
-	                                        <a href="/admin/booking/delete/{{booking.name}}" class="" style="color:red">
+	                                        <a href="/admin/booking/delete/{{booking.name}}" class="" style="color:red" onclick="return confirm('Are you sure ?')">
 	                                        	<i  class="fa fa-trash-o" aria-hidden="true"></i>
 	                                        </a>
 	                                        

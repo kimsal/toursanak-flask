@@ -7,11 +7,7 @@ html,body {
     color                 : #444;
     font-family           : 'Lato', sans-serif;
 }
-@media screen and (max-width: 600px) {
-    .container {
-        padding           : 0px;
-    }
-}
+
 .banner {
 	width                 :100%;
 	height                : auto;
@@ -34,7 +30,12 @@ html,body {
 	font-weight           : 200;
 	line-height           : 1.5;
 }
-
+p {
+    margin: 0px 10px 10px;
+}
+h2 {
+    margin: 0px 10px 10px;
+}
 .bg-overlay-small {
     background             : linear-gradient(rgba(83, 84, 81, 0.8), rgba(53, 54, 62, 0.15)), url("../image/tuktuk.png");
     background-repeat       : no-repeat;
