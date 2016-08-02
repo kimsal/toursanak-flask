@@ -1,0 +1,36 @@
+{% include template_name+'/header.html' %}
+{%for page in page_object%} 
+<div class="banner post">
+	<div class="bg-overlay">
+		<div class="row text-center">
+			<b><h2><br/>
+				{{page.title}}
+			<h2></b>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row ">
+		{{page.description|safe}}
+	</div>
+	<div class="row">
+		<center><h2 class="myh4">Our Team</h2></center>
+		<hr/>
+	</div>
+</div>
+{%endfor%}
+<div class="container">
+	<!-- Team Members Row -->
+	<div class="row no">
+		{%for member in members %}
+		<div class="col-lg-4 col-sm-6 text-center">
+			<img class="img-circle img-responsive" style="margin: 0 auto;" src="{{member.feature_image}}" alt="">
+			<h3>{{member.name}} <small>{{member.possition}}</small></h3>
+			<p>
+			{{member.detail}}
+			</p>
+		</div>
+		{%endfor%}
+	</div>
+</div>
+{% include template_name+'/footer.html' %} 

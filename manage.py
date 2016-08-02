@@ -172,7 +172,7 @@ def admin_member(pagination=1,action='',slug=''):
 			return render_template("admin/form/member.html",form=form,member_object=members)
 		else:
 			try:
-				Members.update({"slug" : slugify(request.form['name']) , "name" : request.form['name'],'possition':request.form['possition'],'detail':request.form['detail'],'feature_image':request.form['txt_temp_image'] })
+				members.update({"slug" : slugify(request.form['name']) , "name" : request.form['name'],'possition':request.form['possition'],'detail':request.form['detail'],'feature_image':request.form['txt_temp_image'] })
 		   		status = db.session.commit()
 				flash("Member updated successfully.")
 				return redirect(url_for("admin_member"))
@@ -284,9 +284,9 @@ def admin_booking(pagination=1,action='',name=''):
 			flash('Fail to delete booking. '+ e.message)
 			return redirect(url_for('admin_booking'))
 	else:
-		bookings=Booking.query.join(Location,Booking.location_id == Location.id).order_by(Booking.id.desc()).limit(limit).offset(int(int(int(pagination)-1)*limit))
-		pagin=math.ceil((Booking.query.join(Location,Booking.location_id == Location.id).count())/limit)
-		if((Booking.query.join(Location,Booking.location_id == Location.id).count())%limit != 0 ):
+		bookings=Booking.query.join(Post,Booking.post_id == Post.id).order_by(Booking.id.desc()).limit(limit).offset(int(int(int(pagination)-1)*limit))
+		pagin=math.ceil((Booking.query.join(Post,Booking.post_id == Post.id).count())/limit)
+		if((Booking.query.join(Post,Booking.post_id == Post.id).count())%limit != 0 ):
 			pagin=int(pagin+1)
 		return render_template('admin/booking.html',bookings=bookings,current_pagin=int(pagination),pagin=int(pagin))
 
@@ -349,9 +349,22 @@ def contact(type_submit=''):
 ############ Booking ####################
 @app.route('/add/booking/<type_submit>/',methods=['POST'])
 @app.route('/add/booking/<type_submit>',methods=['POST'])
-def booking(type_submit=''):
-	if type_submit=="":
+@app.route('/add/booking/<type_submit>/<slug>/',methods=['POST'])
+@app.route('/add/booking/<type_submit>/<slug>',methods=['POST'])
+def booking(type_submit='',slug=''):
+	if type_submit=="post":
 		#by form refresh page
+		posts=Post.query.filter_by(slug=slug)
+		for post in posts:
+			post_id=post.id
+		booking = Booking(request.form['name'],request.form['email'],request.form['phone'],post_id,0)
+		status = Booking.add(booking)
+		if not status:
+			flash("Booking added successfully")
+			return redirect(url_for('index'))
+		else:
+			flash("Fail to add booking !")
+       		return redirect(url_for('index'))
 		return 'add and refresh page'
 	elif type_submit=="ajax":
 		#by ajax
@@ -363,11 +376,12 @@ def booking(type_submit=''):
 			email=data[1]
 			phone=data[2]
 			amount=data[3]
-			location_id=data[4]
-			booking=Booking(name,email,phone,location_id,amount)
+			post_id=data[4]
+			detail=data[5]
+			booking=Booking(name,email,phone,post_id,amount,detail)
 			status = Booking.add(booking)
 			if not status:
-				return "Your info saved was successfully"
+				return "Your info saved was successfully. We'll contact you soon."
 			else:
 				return "Fail to add booking !"
 		except Exception as e:
@@ -988,15 +1002,24 @@ def page_not_found(e):
 def index(pagination=1):
 	global limit
 	form=ContactForm() 
-	slide=Post.query.order_by(Post.id.desc()).limit(1)
-	posts_top = Post.query.join(UserMember).join(Category).filter(Category.name=="TOUR").order_by(Post.id.desc()).limit(6)
-	posts_bottom = Post.query.join(UserMember).join(Category).filter(Category.name=="ACTIVITIES").order_by(Post.id.desc()).limit(6)
+	slide=Post.query.join(Category).filter(Category.name=="TOUR").order_by(Post.id.desc()).limit(1)
+	posts_top = Post.query.join(UserMember).join(Category).filter(Category.name=="TOUR").order_by(Post.id.desc()).limit(9).offset(1)
+	posts_bottom = Post.query.join(UserMember).join(Category).filter(Category.name=="ACTIVITIES").order_by(Post.id.desc()).limit(9)
 	home_posts=Post.query.join(UserMember).order_by(Post.id.desc()).limit(limit).offset(int(int(int(pagination)-1)*limit))
 	pagin=math.ceil((Post.query.count())/limit)
 	locations=Location.query.order_by(Location.id.desc()).all()
 	events=Event.query.order_by(Event.id.desc()).all()
 	members=Member.query.order_by(Member.id.desc()).all()
 	return render_template(template+'/index.html',slide=slide,members=members,events=events,locations=locations,form=form,page_name='home',posts_top=posts_top,home_posts=home_posts,posts_bottom = posts_bottom,pagin=int(pagin),current_pagin=int(pagination))
+
+@app.route('/booking/<slug>')
+@app.route('/booking/<slug>/')
+def booking_page(slug):
+	form=BookingForm()
+	post=Post.query.filter_by(slug=slug)
+	for p in post:
+		post_id=p.id
+	return render_template(template+'/booking.html',post_id=post_id,form=form,slug=slug,page_name='booking')
 @app.route('/<slug>')
 @app.route('/<slug>/')
 @app.route('/<slug>/<pagination>')
@@ -1030,7 +1053,8 @@ def single(slug='',pagination=1):
 					status = db.session.commit()
 					session['amoogli_view'] = (str(session.get('amoogli_view')))+","+slug
 		elif page_object.count()>0:
-			return render_template(template+"/page.html",page_name="page",page_object=page_object)
+			members=Member.query.all()
+			return render_template(template+"/page.html",members=members,page_name="page",page_object=page_object)
 		else:
 			category=Category.query.filter_by(slug=slug)
 			if category.count()>0:
@@ -1082,20 +1106,36 @@ def category(slug='',pagination=1):
 	if(math.ceil(Post.query.filter_by(category_id=cat_id).count())%limit != 0 ):
 		pagin=int(pagin+1)
 	return render_template(template+'/category.html',page_name='category',category_slug=category_slug,category_name=category_name,posts=posts,pagin=int(pagin),current_pagin=int(pagination))
+@app.route('/search/<pagination>', methods=['POST', 'GET'])
+@app.route('/search/<pagination>/', methods=['POST', 'GET'])
+@app.route('/sw/<pagination>', methods=['POST', 'GET'])
+@app.route('/sw/<pagination>/', methods=['POST', 'GET'])
 @app.route('/search', methods=['POST', 'GET'])
 @app.route('/search/', methods=['POST', 'GET'])
 @app.route('/sw', methods=['POST', 'GET'])
 @app.route('/sw/', methods=['POST', 'GET'])
-def search():
-	search=(str(request.args['q']))#.split()
+def search(pagination=1):
+	global limit
+	search=(str(request.args['q']))
 	search=search.replace(" ",'+')
-	# return search
 	if search=="":
 		return redirect(url_for("index"))
-	return search
-	query_result=(Post.query.filter((Post.title).match("'%"+search+"%'"),(Post.description).match("%'"+search+"'%"))).count()
-	posts=Post.query.filter((Post.title).match("'%"+search+"%'")).all()#.limit(limit).offset(int(int(int(limit)-1)*limit))
-	return render_template(template+"/search.html",search=search,query_result=query_result,posts=posts)
+	posts=Post.query.filter((Post.title).match("'%"+search+"%'")).all()#limit(limit).offset(int(int(int(limit)-1)*limit))
+	pagin=math.ceil((Post.query.filter((Post.title).match("'%"+search+"%'")).count())/limit)
+	if math.ceil(pagin)%limit != 0:
+		pagin=int(pagin+1)
+	return render_template(template+'/search.html',search=search,page_name='search',posts=posts,current_pagin=int(pagination),pagin=(int(pagin)))
+
+	# search=(str(request.args['q']))#.split()
+	# search=search.replace(" ",'+')
+	# # return search
+	# if search=="":
+	# 	return redirect(url_for("index"))
+	# query_result=(Post.query.filter((Post.title).match("'%"+search+"%'"))).count()
+	# posts=Post.query.filter((Post.title).match("'%"+search+"%'")).all()#.limit(limit).offset(int(int(int(limit)-1)*limit))
+	# return render_template(template+"/search.html",search=search,query_result=query_result,posts=posts)
+
+
 # @app.route('/search', methods=['POST', 'GET'])
 # @app.route('/search/', methods=['POST', 'GET'])
 # def booking():

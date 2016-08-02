@@ -103,7 +103,7 @@
 .imgs-grid-modal .modal-close {
   position: absolute;
   right: 10px;
-  top: 50px;
+  top: 45px;
   width: 35px;
   height: 35px;
   background-image: url(../image/imgs-grid-icons.png);
@@ -115,7 +115,7 @@
 }
 .imgs-grid-modal .modal-inner {
   position: absolute;
-  top: 60px;
+  top: 80px;
   bottom: 60px;
   left: 0;
   right: 0;
@@ -134,6 +134,7 @@
 }
 .imgs-grid-modal .modal-inner .modal-control.right {
   right: 0;
+  margin-top: 30px;
 }
 .imgs-grid-modal .modal-inner .modal-control .arrow {
   margin: 0 auto;
@@ -155,6 +156,7 @@
   right: 70px;
   bottom: 0;
   text-align: center;
+
 }
 .imgs-grid-modal .modal-inner .modal-image:before {
   display: inline-block;

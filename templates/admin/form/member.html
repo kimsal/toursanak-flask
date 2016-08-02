@@ -140,12 +140,12 @@
   {% for member in member_object %}
  <script type="text/javascript">
    $('input#name').attr('value',"{{member.name}}"); 
-   $('input#position').attr('value',"{{member.position}}"); 
-   $('input#detail').attr('value',"{{member.detail}}"); 
+   $('input#possition').attr('value',"{{member.possition}}"); 
+   $('textarea#detail').html("{{member.detail}}"); 
    $('#frm').attr('action','/admin/member/edit/{{member.slug}}/');
 
-   feature_image1="{{member.feature_image1}}";
-   $("#landscape").html('<img src="'+feature_image1+'"/>');
+   feature_image1="{{member.feature_image}}";
+   $("#landscape").html('<img src="'+feature_image1+'" class="img-responsive"/>');
      //alert(feature_image1);
    $(".txt_temp_image").attr('value',feature_image1);
 

@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Toursanak Cambodia Tour</title>
+    <link rel="icon" type="image/png" href="/static/{{template_name}}/image/logo.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/animate.css">
-	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/index.css">
+    <script src="/static/admin/js/jquery.min.js"></script>
+    {% if page_name == 'home' %}
+        <title>Toursanak Cambodia Tour</title>
+        <meta name="description" content="toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        <meta name="keywords" content="toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+    {% elif page_name == 'single' %}
+        {%for post in post_object%}
+            <title>{{post.title}} | Toursanak</title>
+            <meta name="description" content="toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world,{{post.title}},{{post.short_description}}">
+            <meta name="keywords" content="toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world,{{post.title}},{{post.short_description}}">
+        {%endfor%}
+    {% elif page_name == 'category' %}
+        <title>{{category_name}} | Toursanak</title>
+        <meta name="description" content="{{category_name}} toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        <meta name="keywords" content="{{category_name}} ,toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+    {% elif page_name == 'page' %}
+        {%for page in page_object%}
+            <title>{{page.title}} | Toursanak</title>
+            <meta name="description" content="{{page.title}} toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+            <meta name="keywords" content="{{page.title}}Emerald - toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        {%endfor%}
+    {% elif page_name == 'location' %}
+        {%for location in location_object%}
+            <title>{{location.title}} | Toursanak  </title>
+            <meta name="description" content="{{location.title}} toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+            <meta name="keywords" content="{{location.title}},toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        {%endfor%}
+    {% elif page_name == 'event' %}
+        {%for event in event_object%}
+            <title>{{event.title}} | Toursanak </title>
+            <meta name="description" content="{{event.title}} toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+            <meta name="keywords" content="{{event.title}}Emerald - toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        {%endfor%}
+    {%elif page_name=='booking'%}
+        <title>Book Tour Cambodia | Toursanak </title>
+        <meta name="description" content="{{slug}},Book tour now,toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        <meta name="keywords" content="{{slug}}, Book tour now,toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+    {% endif %}
+
+
+
+    {%if page_name=="home"%}
+	   <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/index.css">
+    {%elif page_name=='booking'%}
+        <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/booking.css">
+    {%elif page_name=='page'%}
+         <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/about.css">
+    {%elif page_name=='category'%}
+        <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/category.css">
+    {%elif page_name=='search'%}
+        <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/category.css">
+    {%elif page_name=='single'%}
+        <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/images-grid.css">
+        <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/category.css">
+    {%endif%}
+
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/menu.css">
 	<link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/coreSlider.css">
 	<link rel="stylesheet" type="text/css" href="assets/animate.css">
@@ -44,9 +99,9 @@
                 <li>&nbsp;</li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <form class="navbar-form navbar-right" action="#" method="GET">
+                <form class="navbar-form navbar-right" action="/search/" method="GET">
 	           		<div class="input-group">
-						<input class="form-control" placeholder="Search..." id="query" name="search" value="" type="text">
+						<input class="form-control" placeholder="Search..." id="search" name="q" value="" type="text">
 	                  	<div class="input-group-btn">
 	                    	<button type="submit" class="btn btn-success"><span  class="fa fa-search" aria-hidden="true"></span></button>
 	                  	</div>

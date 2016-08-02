@@ -133,6 +133,7 @@ class Post(db.Model):
     user_id=db.Column(db.Integer,db.ForeignKey('user_member.id'))
     published_at=db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
     views = db.Column(db.Integer, nullable=True)
+    bookings=db.relationship('Booking', backref="post", lazy='dynamic')
     # images=db.relationship('Image', backref="post", lazy='dynamic')
     def to_Json(self):
         return dict(id=self.id,
@@ -179,7 +180,7 @@ class Location(db.Model):
     slug=db.Column(db.String(255),nullable=True,unique=True)
     user_id=db.Column(db.Integer,db.ForeignKey('user_member.id'))
     published_at=db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
-    bookings=db.relationship('Booking', backref="location", lazy='dynamic')
+    # bookings=db.relationship('Booking', backref="location", lazy='dynamic')
     def to_Json(self):
         return dict(id=self.id,
             title=self.title,
@@ -306,7 +307,8 @@ class Booking(db.Model):
     email  = db.Column(db.String(255))
     phone  = db.Column(db.String(255),nullable=True)
     amount = db.Column(db.Integer,nullable=True)
-    location_id=db.Column(db.Integer,db.ForeignKey('location.id'))
+    post_id= db.Column(db.Integer,db.ForeignKey('post.id'))
+    detail = db.Column(db.Text,nullable=True)
     published_at=db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
     def __str__(self):
         return self.name
@@ -317,15 +319,17 @@ class Booking(db.Model):
             name=self.name,
             email=self.email,
             phone=self.phone,
-            location_id=self.location_id,
-            amount=self.amount
+            post_id=self.post_id,
+            amount=self.amount,
+            detail=self.detail
             )
-    def __init__(self,name,email,phone,location_id,amount=1,):
+    def __init__(self,name,email,phone,post_id,amount=1,detail=''):
         self.name =name,
         self.email =email,
         self.phone =phone,
         self.amount=amount,
-        self.location_id=location_id
+        self.post_id=post_id,
+        self.detail=detail
     def add(booking):
         db.session.add(booking)
         return db.session.commit()

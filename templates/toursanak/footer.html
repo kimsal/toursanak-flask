@@ -2,43 +2,44 @@
     <div class="container  post">
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-3 column">
-                <h4>Information</h4>
+                <h4>Our Tour Categories</h4>
+
                 <ul class="nav">
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Benefits</a></li>
-                    <li><a href="">Developers</a></li>
+                {%for category in categories%}
+                    <li><a href="/{{category.slug}}">{{category.name}}</a></li>
+                {%endfor%}
                 </ul>
             </div>
             <div class="col-xs-6 col-md-3 column">
                 <h4>Follow Us</h4>
                 <ul class="nav">
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Google+</a></li>
-                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCeuyw71U_ORDOOyPFWH015A" target="_blank">
+                    Youtube
+                    </a></li>
+                    <li>
+                    <a href="https://www.facebook.com/toursanak/?fref=ts&ref=br_tf"  target="_blank">Facebook</a>
+                    </li>
+                    <li>
+                    <a href="https://twitter.com/Toursanak"  target="_blank">Twitter</a>
+                    </li>
+                    <li>
+                    <a href="https://plus.google.com/103499184267922516982/posts"  target="_blank">Google+</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-xs-6 col-md-3 column">
-                <h4>Contact Us</h4>
+                <h4>Contact us</h4>
                 <ul class="nav">
-                    <li><a href="#">Email</a></li>
-                    <li><a href="#">Headquarters</a></li>
-                    <li><a href="#">Management</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-6 col-md-3 column">
-                <h4>Customer Service</h4>
-                <ul class="nav">
-                    <li><a href="#">TEL: </a></li>
-                    <li><a href="#">Email: </a></li>
+                    <li><a href="#">Tel: +855-70-453-236</a></li>
+                    <li><a href="#">Email: toursanak@gmail.com </a></li>
                     <li><a href="#">Terms &amp; Conditions</a></li>
                 </ul>
             </div>
         </div>
         <!--/row-->
-        <p class="text-right">Hosted by Amoogli.com &copy; 2016. All Rights Reserved.</p>
+        <p class="text-right">Hosted by 
+        <a href="http://www.amoogli.com" style="color:white">Amoogli.com
+        </a> &copy; 2016. All Rights Reserved.</p>
     </div>
 </footer>
 
@@ -56,18 +57,28 @@
 <script type="text/javascript" src="assets/viewportchecker.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function() {
-	jQuery('.no').addClass("hidden").viewportChecker({
-	    classToAdd: 'visible animated fadeIn', // Class to add to the elements when they are visible
-	    offset: 100    
-	   });   
+    try{
+    	jQuery('.no').addClass("hidden").viewportChecker({
+    	    classToAdd: 'visible animated fadeIn', // Class to add to the elements when they are visible
+    	    offset: 100    
+    	   });  
+    }
+    catch(err) {
+        console.log(err);
+    }    
 });            
 </script>
 <script type="text/javascript">
 jQuery(document).ready(function() {
-	jQuery('.post').addClass("hidden").viewportChecker({
-	    classToAdd: 'visible animated fadeInDown', // Class to add to the elements when they are visible
-	    offset: 100    
-	   });   
+    try{
+    	jQuery('.post').addClass("hidden").viewportChecker({
+    	    classToAdd: 'visible animated fadeInDown', // Class to add to the elements when they are visible
+    	    offset: 100    
+    	   });  
+    }
+    catch(err) {
+        console.log(err);
+    } 
 });            
 </script>
 </body>
