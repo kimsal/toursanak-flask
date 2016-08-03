@@ -50,12 +50,12 @@
   height: 36px;
   line-height: 0px;
   font-size: 0px;
-  background-image: url('/static/images/OkGreen.png');
+  background-image: url('/static/images/Ok.png');
   background-repeat: no-repeat;
 }
 
 #preview .buttons .ok:hover { 
-  background-image: url('/static/images/OkGreen.png'); 
+  background-image: url('/static/images/Ok.png'); 
   background-color: 
 }
 

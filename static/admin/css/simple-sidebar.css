@@ -231,45 +231,7 @@ form > li{
    /* border-bottom: solid #EBEBEB thin;*/
     font-size: 14px;
 }
-    
-/*scroll top*/
-/*.scroll-top-wrapper {
-    position: fixed;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    text-align: center;
-    z-index: 99999999;
-    background-color: gray;
-    color: #eeeeee;
-    width: 25px;
-    height: 34px;
-    line-height: 34px;
-    right: 30px;
-    bottom: 30px;
-    padding-top: 2px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-.scroll-top-wrapper:hover {
-    background-color: gray;
-    border-bottom: 1px solid gray;
-}
-.scroll-top-wrapper.show {
-    visibility:visible;
-    cursor:pointer;
-    opacity: 1.0;
-}
-.scroll-top-wrapper i.fa {
-    line-height: inherit;
-}*/
+
 
 
 /*end scroll top*/
@@ -295,4 +257,46 @@ form > li{
     font-weight: bold;
     line-height: 50px;
     border-radius: 2px;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 0px 0px rgba(0,0,0,.05);
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    text-transform: uppercase;
+    color: #3a4449;
+}
+label {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    color: #3a4449;
+    font-weight: 400;
+}
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgb(239, 233, 233);
 }
