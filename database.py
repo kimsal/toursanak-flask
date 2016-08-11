@@ -18,19 +18,19 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql://blog:blog@localhost:5432/toursanak'
 auth = HTTPTokenAuth(scheme='Token')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
-app.secret_key = 'Hello@AmoogliCamSmallworld$Cambodia&*&'
+app.secret_key = 'Hello@AmokCamSmallworld$Cambodia&*&'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 #template is the url of selected template 
-ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
+ALLOWED_EXTENSIONS = set(['pdf','docx','txt'])
 #upload url for feature images
 app.config['UPLOAD_FOLDER'] = 'static/images/images/'
 expire_date = datetime.now()
 expire_date = expire_date + timedelta(days=90)
 
-SECRET_KEY="Hello@AmoogliCamSmallworld$Cambodia&*&"
+SECRET_KEY="!Amok123#smallworld_common_toursanak_amok"
 def init_db():
     import BLOG.models
     Base.metadata.create_all(bind=engine)

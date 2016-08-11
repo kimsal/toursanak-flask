@@ -142,7 +142,7 @@
     </script>
   {% for partner in partner_object %}
  <script type="text/javascript">
-   $('input#name').attr('value',"{{partner.name}}"); 
+   $('input#name').attr('value',"{{partner.name|safe}}"); 
    $('#frm').attr('action','/admin/partner/edit/{{partner.slug}}/');
    var help="{{partner.url}}";
    //help=help.replace(/(&lt;br\/&gt;)+/gi,'')

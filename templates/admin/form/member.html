@@ -139,9 +139,9 @@
     </script>
   {% for member in member_object %}
  <script type="text/javascript">
-   $('input#name').attr('value',"{{member.name}}"); 
+   $('input#name').attr('value',"{{member.name|safe}}"); 
    $('input#possition').attr('value',"{{member.possition}}"); 
-   $('textarea#detail').html("{{member.detail}}"); 
+   $('textarea#detail').html("{{member.detail|safe}}"); 
    $('#frm').attr('action','/admin/member/edit/{{member.slug}}/');
 
    feature_image1="{{member.feature_image}}";

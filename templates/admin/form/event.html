@@ -159,7 +159,7 @@
     </script>
 {% for p in post %}
  <script type="text/javascript">
-   $('input#title').attr('value',"{{p.title}}"); 
+   $('input#title').attr('value',"{{p.title|safe}}"); 
    $('#frm').attr('action','/admin/post/edit/{{p.slug}}/');
    var help="{{p.description.replace('\n', '').replace('\r','')}}";
    //help=help.replace(/(&lt;br\/&gt;)+/gi,'')

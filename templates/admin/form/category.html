@@ -118,7 +118,7 @@
     <script src="/static/admin/js/bootstrap.min.js"></script>
     {% for c in cat %}
      <script type="text/javascript">
-       $('input#name').attr('value',"{{c.name}}");  
+       $('input#name').attr('value',"{{c.name|safe}}");  
        $('#frm').attr('action','/admin/category/edit/{{c.slug}}/');
      </script>
     {% endfor %}

@@ -553,6 +553,7 @@ def admin_post_add(slug=""):
 				now= now.replace(':',"",10).replace(' ','',4).replace('.','',5).replace('-','',5)
 		   		result = request.form
 				filename=str(request.form['txt_temp_image'])
+				# return filename
 				if not slug:
 		   			if file:
 		   				images=''
@@ -572,6 +573,7 @@ def admin_post_add(slug=""):
 			   				price=0
 			   			else:
 			   				price=int(request.form["price"])
+			   			
 		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"])
 			        	status=Post.add(obj)
 				        if not status:
@@ -587,6 +589,7 @@ def admin_post_add(slug=""):
 		   				help=1
 	   					uploaded_files = flask.request.files.getlist("other_image[]")
 		   				# return filename
+		   				
 		   				for f in uploaded_files:
 		   					imagename = secure_filename(f.filename)
 		   					if imagename!="":
@@ -1019,7 +1022,8 @@ def booking_page(slug):
 	post=Post.query.filter_by(slug=slug)
 	for p in post:
 		post_id=p.id
-	return render_template(template+'/booking.html',post_id=post_id,form=form,slug=slug,page_name='booking')
+		post_title=p.title
+	return render_template(template+'/booking.html',post_title=post_title,post_id=post_id,form=form,slug=slug,page_name='booking')
 @app.route('/<slug>')
 @app.route('/<slug>/')
 @app.route('/<slug>/<pagination>')

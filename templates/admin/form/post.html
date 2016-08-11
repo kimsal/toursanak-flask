@@ -239,7 +239,7 @@
 <script type="text/javascript" src="/static/admin/js/postform.js"></script>
   {% for p in post %}
   <script type="text/javascript">
-   $('input#title').attr('value',"{{p.title}}"); 
+   $('input#title').attr('value',"{{p.title|safe}}"); 
    $('#frm').attr('action','/admin/post/edit/{{p.slug}}/');
    $('#description').html("{{p.description.replace('\n', '').replace('\r','')}}");  
    $('select#category_id option[value="{{p.category_id}}"]').attr("selected","selected");

@@ -191,9 +191,9 @@
     </script>
   {% for location in location_object %}
  <script type="text/javascript">
-   $('input#title').attr('value',"{{location.title}}"); 
-   $('input#address').attr('value',"{{location.address}}"); 
-   $('input#hour').attr('value',"{{location.hour}}"); 
+   $('input#title').attr('value',"{{location.title|safe}}"); 
+   $('input#address').attr('value',"{{location.address|safe}}"); 
+   $('input#hour').attr('value',"{{location.hour|safe}}"); 
    $('#contact').append("{{location.contact.replace('\n', ' ').replace('\r',' ')}}"); 
    $('#frm').attr('action','/admin/location/edit/{{location.slug}}/');
    feature_image1="{{location.feature_image1}}"; 
