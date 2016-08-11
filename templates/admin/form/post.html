@@ -30,6 +30,10 @@
   tr td img{
     margin-top:10px;
   }
+  input[type="file"] {
+    display: block;
+    margin-right: 5px;
+  }
 </style>
 <script type="text/javascript">
   var img_no=0;
@@ -132,18 +136,18 @@
                                 </div>
                                 
                                 
-                                <!--phos add feature image-->
+                                <!-- add feature image-->
 
                                 <div class="form-group">
                                   <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><br/>
-                                    <b>Feature Image</b>
+                                    <label>Feature Image</label>
                                   </div>
 
                                   <input type="text" name="txt_temp_image" class="txt_temp_image" value="" style="display:none"/>
 
                                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                      <div class="panel panel-body">
-                                       <div class="span4 cropme" id="landscape" style="width:430px; height: 300px;">
+                                       <div class="span4 cropme" id="landscape" style="width:200px; height: 150px;">
                                        </div>
                                     </div>
                                   </div>
@@ -182,7 +186,7 @@
                                   <table id="imgs">
                                     <tr>
                                       <td>
-                                        <input type="file" name="other_image[]" multiple=""  class="other_image1"/>
+                                        <input class="btn btn-default" type="file" name="other_image[]" multiple=""  class="other_image1"/>
                                       </td>
                                       <td>
                                       <img src="/static/images/no image.jpg" class="img-1 img-responsive" style="max-width:100px;">
@@ -196,8 +200,10 @@
                                     </tr>
                                     </table>
                                     <div class="more">
-                                      <i class="fa fa-plus" aria-hidden="true"></i>
-                                      Add another image
+                                      <i class="fa fa-plus" aria-hidden="true" style="color:blue"></i>
+                                      <label>
+                                            Add another image
+                                      </label>
                                     </div>
                                     </div>
                                   </div>
@@ -263,7 +269,7 @@
   if(feature_image==''){
     feature_image='/static/images/no image.jpg';
    }
-   $("#landscape").html('<img src="'+feature_image+'" style="width:280px;height:200px" class="img-responsive"/> ');
+   $("#landscape").html('<img src="'+feature_image+'" style="width:200px;height:150px" class="img-responsive"/> ');
   //input only number
     $("#price").keydown(function (e) {
         // Allow: backspace, delete, tab, escape, enter and .

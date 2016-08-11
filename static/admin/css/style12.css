@@ -1,9 +1,4 @@
 
-/* 
-    Author     : Tomaz Dragar
-    Mail       : <tomaz@dragar.net>
-    Homepage   : http://www.dragar.net
-*/
 .navbar-default{
   border-color: none;
 }
@@ -59,7 +54,10 @@
   background-repeat: no-repeat;
 }
 
-#preview .buttons .ok:hover { background-image: url('/static/images/OkGreen.png'); }
+#preview .buttons .ok:hover { 
+  background-image: url('/static/images/Ok.png'); 
+  background-color: 
+}
 
 #preview .buttons .cancel {
   margin-bottom: 4px;
@@ -69,8 +67,10 @@
   height: 36px;
   line-height: 0px;
   font-size: 0px;
-  background-image: url('/static/images/Cancel.png');
+  background-image: url('/static/images/CancelRed.png');
   background-repeat: no-repeat;
 }
 
-#preview .buttons .cancel:hover { background-image: url('/static/images/CancelRed.png'); }
+#preview .buttons .cancel:hover { 
+  background-image: url('/static/images/CancelRed.png'); 
+}
