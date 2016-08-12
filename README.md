@@ -24,6 +24,13 @@ sudo pip install slugify
 python models.py db init
 sudo pip install flask_sijax
 sudo pip install  flask_restful
+sudo pip install flask_sqlalchemy
+sudo pip install sqlalchemy
+sudo pip install flask_wtf
+sudo pip install flaskckeditor
+sudo apt-get install postgresql
+sudo apt-get install python-psycopg2
+sudo apt-get install libpq-dev
 
 #migrate database:
 python models.py db init
