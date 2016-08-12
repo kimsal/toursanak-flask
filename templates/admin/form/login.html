@@ -121,9 +121,9 @@ a:hover {
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                       {% for message in messages %}
-                        <li class="alert alert-dander"> 
+                        <div class="alert alert-danger"> 
                           {{ message }}
-                        </li>
+                        </div>
                       {% endfor %}
                     {% endif %}
                   {% endwith %}
