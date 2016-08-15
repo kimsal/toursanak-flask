@@ -1,63 +1,23 @@
 {% include 'admin/header.html' %}
 	<style type="text/css">
-	.profile{
-		width: 30%;
-		height: 50px;
-		float: left;
+	.email{
+		padding:10px;
+		border-radius: 3px;
 	}
-	.user-name{
-		width: 60%;
-		height: 50px;
-		float: left;
+	.email:hover{
+		background-color:#EEE;
 	}
-	.profil-panel{
-		margin-bottom: 20px;
-		background-color: #fff;
-		border: 0px solid transparent;
-		border-radius: 0px;
-		-webkit-box-shadow: 0 0px 0px rgba(0,0,0,.05);
-		box-shadow: 0 0px 0px rgba(0,0,0,.05);
+	.email b:hover{
+		color:blue;
 	}
-	.panel-body-mail{
-		padding: 3px;
-		background-color: #FFFFF7;
-		border: thin solid #f3f0f0 !important;
-		margin-top: 2px;
+	.email a{
+		display: block;
+		color:black;
 	}
-	.panel-body-mail:hover{
-		background-color: #E7E7E7;
-		-webkit-transition: background-color 1000ms linear;
-	    -moz-transition: background-color 1000ms linear;
-	    -o-transition: background-color 1000ms linear;
-	    -ms-transition: background-color 1000ms linear;
-	    transition: background-color 1000ms linear;
+	.email a:hover{
+		text-decoration:none;
+		color:black;
 	}
-	.name{
-		font-weight: 500;
-		color: #25373D;
-		font-weight: 500;
-	}
-	.mail{
-		color: #888888;
-	}
-	.img{
-		width: 84%;
-		border-radius: 0px;
-	}
-	/*@media only screen
-		and (min-width : 700px){
-		.img{
-			width: 30%;
-			border-radius: 0px;
-		}
-	}
-	@media only screen
-		and (max-width :500px ){
-		    .img{
-			width: 60%;
-			border-radius: 0px;
-			}
-		}*/
 	</style>
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -79,91 +39,12 @@
                     	</div>
 	                    <div class="panel-body" >
 	                    	<!-- <div class="container"> -->
-	                    		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	                    			<a href="#">
-	                    				<div class="profile-panel">
-											<div class="panel-body-mail panel-body">
-											   <div class="profile hidden-xs col-sm-12 col-md-12">
-											   	    <img src="/static/images/gmail.png" class="img-responsive img">
-											   </div>
-											   <div class="user-name col-xs-12 col-sm-12 col-md-12">
-											   		<div class="name">kimsal</div>
-											   		<div class="mail">kimsal@gmail.com</div>
-											   </div>
-											</div>
-										</div>
-	                    			</a>
-	                    			<a href="#">
-	                    				<div class="profile-panel">
-											<div class="panel-body-mail panel-body">
-											   <div class="profile hidden-xs col-sm-12 col-md-12">
-											   	    <img src="/static/images/gmail.png" class="img-responsive img">
-											   </div>
-											   <div class="user-name col-xs-12 col-sm-12 col-md-12">
-											   		<div class="name">kimsal</div>
-											   		<div class="mail">kimsal@gmail.com</div>
-											   </div>
-											</div>
-										</div>
+	                    		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 email">
+	                    			<b>Kimsal</b>
+	                    			<a href="mailto:kimsalsan@gmail.com">
+	                    				kimsalsan@gmail.com
 	                    			</a>
 	                    		</div>
-	                    		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	                    			<a href="#">
-	                    				<div class="profile-panel">
-											<div class="panel-body-mail panel-body">
-											   <div class="profile hidden-xs col-sm-12 col-md-12">
-											   	    <img src="/static/images/gmail.png" class="img-responsive img">
-											   </div>
-											   <div class="user-name col-xs-12 col-sm-12 col-md-12">
-											   		<div class="name">kimsal</div>
-											   		<div class="mail">kimsal@gmail.com</div>
-											   </div>
-											</div>
-										</div>
-	                    			</a>
-	                    			<a href="#">
-	                    				<div class="profile-panel">
-											<div class="panel-body-mail panel-body">
-											   <div class="profile hidden-xs col-sm-12 col-md-12">
-											   	    <img src="/static/images/gmail.png" class="img-responsive img">
-											   </div>
-											   <div class="user-name col-xs-12 col-sm-12 col-md-12">
-											   		<div class="name">kimsal</div>
-											   		<div class="mail">kimsal@gmail.com</div>
-											   </div>
-											</div>
-										</div>
-	                    			</a>
-	                    		</div>
-	                    		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	                    			<a href="#">
-	                    				<div class="profile-panel">
-											<div class="panel-body-mail panel-body">
-											   <div class="profile hidden-xs col-sm-12 col-md-12">
-											   	    <img src="/static/images/gmail.png" class="img-responsive img">
-											   </div>
-											   <div class="user-name col-xs-12 col-sm-12 col-md-12">
-											   		<div class="name">kimsal</div>
-											   		<div class="mail">kimsal@gmail.com</div>
-											   </div>
-											</div>
-										</div>
-	                    			</a>
-	                    			<a href="#">
-	                    				<div class="profile-panel">
-											<div class="panel-body-mail panel-body">
-											   <div class="profile hidden-xs col-sm-12 col-md-12">
-											   	    <img src="/static/images/gmail.png" class="img-responsive img">
-											   </div>
-											   <div class="user-name col-xs-12 col-sm-12 col-md-12">
-											   		<div class="name">kimsal</div>
-											   		<div class="mail">kimsal@gmail.com</div>
-											   </div>
-											</div>
-										</div>
-	                    			</a>
-	                    		</div>
-	                    		
 	                    	<!-- </div> -->
 	                    </div>
                     </div>

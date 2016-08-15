@@ -907,7 +907,7 @@ def admin_mail_group(slug='',action=''):
 	groups=Group.query.order_by(Group.published_at.desc()).all()
 	if slug=='':
 		if request.method=="GET":
-			return render_template("admin/form/mailgroup.html",form=form,groups=groups)
+			return render_template("admin/form/mailgroup.html",name=slug,form=form,groups=groups)
 		else:
 			try:
 				name = request.form['name']

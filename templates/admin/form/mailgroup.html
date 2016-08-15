@@ -46,7 +46,7 @@
 							   <!--  <input type="text" class="form-control" id="group" placeholder="Group Name ..." required> -->
 							   {{ form.name(class_="form-control") }}
 							  </div>
-							  <button type="submit" class="btn btn-primary">Submit</button>
+							  <button type="submit" class="btn btn-primary">Save</button>
 							  <button type="reset" class="btn btn-default">Clear</button>
 							</form>
                     	</div>
@@ -87,8 +87,10 @@
     </div>
 </div>
 <script>
-	$('#name[name="name"]').attr('value',"{{name}}")
-	$('#frm').attr('action','/admin/email/group/{{name}}/edit/');
+	if("{{name}}"!=''){
+		$('#name[name="name"]').attr('value',"{{name}}")
+	    $('#frm').attr('action','/admin/email/group/{{name}}/edit/');
+	}
 	if($(".alert").length>0){
 		if(($(".alert").html()).indexOf("success")>=0){
 			$(".alert").addClass('alert-success');
