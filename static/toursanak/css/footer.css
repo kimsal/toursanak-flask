@@ -16,3 +16,13 @@ footer .nav>li>a:hover {
     background-color 				: transparent;
 	color 							: #fff;
 }
+.list {
+	font-weight 					: 600;
+	padding-top 					: 5px;
+	padding-bottom 					: 5px;
+}
+.title-h4 {
+	font-weight: 800;
+	font-size: larger;
+	text-transform: uppercase;
+}
