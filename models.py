@@ -404,29 +404,6 @@ class Partner(db.Model):
         db.session.delete(partner)
         return db.session.commit()
 
-# class Image(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(255),nullable=True,unique=True)
-#     post_id=db.Column(db.Integer,db.ForeignKey('post.id'))
-#     published_at=db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
-#     def to_Json(self):
-#         return dict(id=self.id,
-#             name=self.name,
-#             post_id=self.post_id,
-#             published_at="{}".format(self.published_at),
-#             )
-#     def __init__(self, name,post_id):
-#         self.title = name
-#         self.post_id = post_id
-#     def add(image):
-#         db.session.add(image)
-#         return db.session.commit()
-#     def update(self):
-#         return session_commit()
-#     def delete(image):
-#         db.session.delete(image)
-#         return db.session.commit()
-#need when migrate database 
 if __name__ == '__main__':
     app.secret_key = SECRET_KEY
     app.config['DEBUG'] = True

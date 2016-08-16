@@ -12,7 +12,6 @@ from flask.json import jsonify
 import math
 from models import *
 from forms import *
-from models import *
 template ="template-2016"
 config=""
 email=''
@@ -961,15 +960,28 @@ def admin_mail_group(slug='',action=''):
 @auth.login_required
 def admin_mail():
 	if request.method=="GET":
-		return render_template("admin/form/maillist.html")
+		emails=Email.query.order_by(Email.id.desc())
+		groups=Group.query.order_by(Group.id.desc())
+		return render_template("admin/form/maillist.html",groups=groups,emails=emails)
 	else:
-		return 'dd'
+		obj=Email(request.form['email'],request.form['name'])
+   		status=Email.add(obj)
+		if not status:
+			flash("Email added successfully")
+			return redirect(url_for('admin_mail'))
+		else:
+			flash("Error in adding email !")
+			return redirect(url_for('admin_mail'))	
+	
+		return redirect(url_for('admin_mail'))
 @app.route('/admin/email', methods = ['GET', 'POST'])
 @app.route('/admin/email/', methods = ['GET', 'POST'])
 @auth.login_required
 def admin_email():
 	if request.method=="GET":
 		return render_template("admin/form/sendmail.html")
+	# else:
+	# 	return redirect(url_for("admin_email"))
 @app.route('/admin/earn')
 @app.route('/admin/earn/')
 def admin_earn():

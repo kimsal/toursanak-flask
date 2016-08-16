@@ -62,6 +62,10 @@ class LocationForm(Form):
   address = TextField("Address")
   hour = TextField("Working Hour")
   contact = TextAreaField("Contact")
+class EmailForm(Form):
+   name = TextField("Name",[validators.Required("Please enter your name.")])
+   email = TextField("Email",[validators.Required("Please enter your email.")])
+   
 # class ImageForm(Form):
 #   name = TextField("Image")
 #   post_id = SelectField('Post', choices=[], coerce=int)
