@@ -208,7 +208,7 @@ section {
   padding                   : 5px;
 }
 .my-mission {
-  font-size                 : 26px;
+  font-size                 : 22px;
   line-height               : 1.1;
   font-weight               : bold;
   padding-left              : 5px;
@@ -216,11 +216,11 @@ section {
   padding-top               : 20px;
 }
 .desc {
-  font-size                 : 22px;
-  padding-left              : 5px;
-  padding-right             : 5px;
-  padding-top               : 30px;
-  font-weight               : 300;
+  font-size               : 29px;
+  padding-left            : 5px;
+  padding-right           : 5px;
+  padding-top             : 30px;
+  font-weight             : 300;
 }
 .demo-1 { max-width:6200px; height:393px;margin:0px auto;}
 .section-box1 {
