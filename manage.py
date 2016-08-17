@@ -979,7 +979,8 @@ def admin_mail():
 @auth.login_required
 def admin_email():
 	if request.method=="GET":
-		return render_template("admin/form/sendmail.html")
+		groups=Group.query.order_by(Group.id.desc())
+		return render_template("admin/form/sendmail.html",groups=groups)
 	# else:
 	# 	return redirect(url_for("admin_email"))
 @app.route('/admin/earn')
