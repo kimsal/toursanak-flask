@@ -1,9 +1,18 @@
 
 .navbar-trans {
-	background-color 			: #2CC990;
+	background-color 			: #198F31;
     color 						: #cdcdcd;
     border-width 				: 0;
     text-transform 				: uppercase;
+
+    -moz-box-shadow: 0px 4px 0px #16e08f;
+    -webkit-box-shadow: 0px 4px 0px #16e08f;
+    box-shadow: 0px 2px 0px #37aa0d;
+
+
+
+
+
 }
 .navbar-form .input-group > .form-control {
     width 						: 100%;
@@ -35,6 +44,7 @@
 .navbar-trans a{
     color 						: #fffcfc;
     letter-spacing 				:	1px;
+    font-weight 				: 800;
 }
 
 .navbar-trans .form-control:focus {
@@ -58,5 +68,5 @@
 .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
     z-index 					: 2;
     margin-left 				: -1px;
-    background 					: #2CC990;
+    background 					: #198F31;
 }
