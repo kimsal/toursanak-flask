@@ -1006,6 +1006,29 @@ def admin_search(pagination=1):
 	#return str(pagin)
 	return render_template('admin/search.html',search=search,page_name='search',posts=posts,current_pagin=int(pagination),pagin=(int(pagin)))
 ############## End send mail #####################
+######### Personalize Email ###########
+@app.route('/admin/checkemail/<email_id>/<group_id>/<action>/', methods=['POST', 'GET'])
+@app.route('/admin/checkemail/<email_id>/<group_id>/<action>', methods=['POST', 'GET'])
+def check_email(email_id,group_id,action):
+	email_id=int(email_id)
+	group_id=int(group_id)
+	if action=="check":
+		obj=Emailgroup.query.filter_by(email_id=email_id).filter_by(group_id=group_id)
+		if obj.count()>0:
+			return jsonify({'status':True })
+		return jsonify({'status':False })
+	elif action=="remove":
+		obj=Emailgroup.query.filter_by(email_id=email_id).filter_by(group_id=group_id).first()
+		Emailgroup.delete(obj)
+		return jsonify({'status':'success'})
+	elif action=="add":
+		emailgroup = Emailgroup(email_id,group_id)
+    	status = Emailgroup.add(emailgroup)
+        if not status:
+            return jsonify({'status':'success' })
+       	else:
+       		return jsonify({'status':'fail' })
+#############End personalize email####################
 #End Middleware
 #client
 @app.errorhandler(404)
