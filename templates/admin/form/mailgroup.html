@@ -88,7 +88,7 @@
 </div>
 <script>
 	if("{{name}}"!=''){
-		$('#name[name="name"]').attr('value',"{{name}}")
+		$('#name[name="name"]').attr('value',"{{name|safe}}")
 	    $('#frm').attr('action','/admin/email/group/{{name}}/edit/');
 	}
 	if($(".alert").length>0){
