@@ -1,302 +1,297 @@
 /*!
- Amok
+ for sidbar Amoogli
 /* Toggle Styles */
 body,h1,h2,h3,h4,h5 {
-    font-family: "Open Sans",sans-serif;
+    font-family                 : "Open Sans",sans-serif;
 }
 form > li{
-    list-style: none;
+    list-style                  : none;
 }
 .page-logo  {
-    float: left;
-    display: block;
-    width: 235px;
-    height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    cursor: pointer;
+    float                       : left;
+    display                     : block;
+    width                       : 235px;
+    height                      : 50px;
+    padding-left                : 20px;
+    padding-right               : 20px;
+    cursor                      : pointer;
 }
 .page-bar {
-    margin-top: 12px;
-    font-size: 18px;
-    color: white;
-    float: right;
+    margin-top                  : 12px;
+    font-size                   : 18px;
+    color                       : white;
+    float                       : right;
 }
 .page-bar a{
-    color: white;
+    color                       : white;
 }
 #wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    padding-left                : 0;
+    -webkit-transition          : all 0.5s ease;
+    -moz-transition             : all 0.5s ease;
+    -o-transition               : all 0.5s ease;
+    transition                  : all 0.5s ease;
 
 }
 /*search box*/
 .input-sm {
-    height: 30px;
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 24px;
+    height                      : 30px;
+    padding                     : 5px 10px;
+    font-size                   : 12px;
+    line-height                 : 1.5;
+    border-radius               : 24px;
 }
 .#irrelevantContainer {
-  width: 100px;
-  margin: 10px auto;
-  border-radius: 20px;
+  width                         : 100px;
+  margin                        : 10px auto;
+  border-radius                 : 20px;
 }
 /*end search*/
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left                : 250px;
 }
 .panel-default {
-    border-color: white;
+    border-color                : white;
 }
 .panel-default > .panel-heading {
-    color: #333;
-    background-color: white;
-    border-color: #fff;
+    color                       : #333;
+    background-color            : white;
+    border-color                : #fff;
 }
 #sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #000;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    background-color:#F8F8F8;
-    color: gray;
+    z-index                     : 1000;
+    position                    : fixed;
+    left                        : 250px;
+    width                       : 0;
+    height                      : 100%;
+    margin-left                 : -250px;
+    overflow-y                  : auto;
+    background                  : #000;
+    -webkit-transition          : all 0.5s ease;
+    -moz-transition             : all 0.5s ease;
+    -o-transition               : all 0.5s ease;
+    transition                  : all 0.5s ease;
+    background-color            : #F8F8F8;
+    color                       : gray;
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width                       : 250px;
 }
 
 #page-content-wrapper {
-    width: 100%;
-    position: absolute;
+    width                       : 100%;
+    position                    : absolute;
     /*padding: 15px;*/
-    padding-top: 5px;
+    padding-top                 : 5px;
 }
 
 #wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
+    position                    : absolute;
+    margin-right                : -250px;
 }
 
 /* Sidebar Styles */
 
 .sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background-color: red;
-    margin-top: -4px;
+    position                    : absolute;
+    top                         : 0;
+    width                       : 250px;
+    margin                      : 0;
+    padding                     : 0;
+    list-style                  : none;
+    background-color            : red;
+    margin-top                  : -4px;
 }
 
 .sidebar-nav li {
-    text-indent: 5px;
-    line-height: 40px;
+    text-indent                 : 5px;
+    line-height                 : 40px;
 
 }
 .navbar-default{
-    background: #2b3643;
+    background                  : #2b3643;
 }
 .sidebar-nav li a {
-    color: #EEE;
-    display: block;
-    text-decoration: none;
-    font-weight: 600;
-    border-top: 1px solid #3d4957;
+    color                       : #EEE;
+    display                     : block;
+    text-decoration             : none;
+    font-weight                 : 600;
+    border-top                  : 1px solid #3d4957;
 }
 .sidebar-nav li a:active{
-    color: white;
+    color                       : white;
 }
 .sidebar-nav li a:hover {
-   /*text-decoration: underline;*/
-   /*color: red;*/
-   background-color: #25373D;
-   color:#FFF;
+   background-color             : #25373D;
+   color                        : #FFF;
 }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
-    text-decoration: none;
+    text-decoration             : none;
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 54px;
-    font-size: 18px;
-    line-height: 60px;
+    height                      : 54px;
+    font-size                   : 18px;
+    line-height                 : 60px;
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color                       : #999999;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
+    color                       : #fff;
+    background                  : none;
 }
 .navbar-inverse {
-    background-color: #222;
-    border-color: #F2F2F2;
+    background-color            : #222;
+    border-color                : #F2F2F2;
 }
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left            : 250px;
     }
 
     #wrapper.toggled {
-        padding-left: 0;
+        padding-left            : 0;
     }
 
     #sidebar-wrapper {
-        width: 250px;
-        background-color: #222;
+        width                   : 250px;
+        background-color        : #222;
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 0;
+        width                   : 0;
     }
 
     #page-content-wrapper {
-        /*padding: 20px;*/
-        position: relative;
+        position                : relative;
     }
 
     #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
+        position                : relative;
+        margin-right            : 0;
     }
 }
 .body{
-    background-color: RGBA(168, 162, 162, 0.17);
+    background-color            : RGBA(168, 162, 162, 0.17);
 }
 /*search box*/
 
 
 #custom-search-input {
-        margin:0;
-        margin-top: 2px;
-        padding: 0;
+        margin                  :0;
+        margin-top              : 2px;
+        padding                 : 0;
     }
  
     #custom-search-input .search-query {
-        padding-right: 3px;
-        padding-right: 4px \9;
-        padding-left: 3px;
-        padding-left: 4px \9;
+        padding-right           : 3px;
+        padding-right           : 4px \9;
+        padding-left            : 3px;
+        padding-left            : 4px \9;
         /* IE7-8 doesn't have border-radius, so don't indent the padding */
- 
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 30px;
+        margin-bottom           : 0;
+        -webkit-border-radius   : 3px;
+        -moz-border-radius      : 3px;
+        border-radius           : 30px;
     }
     #custom-search-input button {
-        border: 0;
-        background: none;
+        border                  : 0;
+        background              : none;
         /** belows styles are working good */
-        padding: 2px 5px;
-        margin-top: 2px;
-        position: relative;
-        left: -28px;
+        padding                 : 2px 5px;
+        margin-top              : 2px;
+        position                : relative;
+        left                    : -28px;
         /* IE7-8 doesn't have border-radius, so don't indent the padding */
-        margin-bottom: 0;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-        color:black;
+        margin-bottom           : 0;
+        -webkit-border-radius   : 2px;
+        -moz-border-radius      : 2px;
+        border-radius           : 2px;
+        color                   : black;
     }
  
     .search-query:focus + button {
-        z-index: 3;   
+        z-index                 : 3;   
     }
     .off-canvas-submenu-call{
-    display: block;
-    text-decoration: none;
-    color: #D2C1C1;
-   /* border-bottom: solid #EBEBEB thin;*/
-    font-size: 14px;
+    display                     : block;
+    text-decoration             : none;
+    color                       : #D2C1C1;
+    font-size                   : 14px;
 }
 
 
 
 /*end scroll top*/
 .fa-trash-o{
-    font-size: 20px;
+    font-size                   : 20px;
 }
 .fa-pencil-square-o{
-    font-size: 20px;
+    font-size                   : 20px;
 }
 .form-control {
-    border-radius: 1px;
+    border-radius               : 1px;
 }
 .form-control:focus {
-    border-color: #e1e6ec;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,0),0 0 0px rgba(255, 255, 255, 0.6);
+    border-color                : #e1e6ec;
+    outline                     : 0;
+    -webkit-box-shadow          : inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow                  : inset 0 0px 0px rgba(0,0,0,0),0 0 0px rgba(255, 255, 255, 0.6);
 }
 .other_image {
-    height: 50px;
-    background-color: #60646D;
-    color: white;
-    font-weight: bold;
-    line-height: 50px;
-    border-radius: 2px;
+    height                      : 50px;
+    background-color            : #60646D;
+    color                       : white;
+    font-weight                 : bold;
+    line-height                 : 50px;
+    border-radius               : 2px;
 }
 .panel {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: 0 0px 0px rgba(0,0,0,.05);
+    margin-bottom               : 20px;
+    background-color            : #fff;
+    border                      : 1px solid transparent;
+    border-radius               : 4px;
+    -webkit-box-shadow          : 0 1px 1px rgba(0,0,0,.05);
+    box-shadow                  : 0 0px 0px rgba(0,0,0,.05);
 }
 .panel-title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 16px;
-    color: inherit;
-    text-transform: uppercase;
-    color: #3a4449;
+    margin-top                  : 0;
+    margin-bottom               : 0;
+    font-size                   : 16px;
+    color                       : inherit;
+    text-transform              : uppercase;
+    color                       : #3a4449;
 }
 label {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 16px;
-    color: inherit;
-    color: #3a4449;
-    font-weight: 400;
+    margin-top                  : 0;
+    margin-bottom               : 0;
+    font-size                   : 16px;
+    color                       : inherit;
+    color                       : #3a4449;
+    font-weight                 : 400;
 }
 legend {
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: inherit;
-    color: #333;
-    border: 0;
-    border-bottom: 1px solid #e5e5e5;
+    display                     : block;
+    width                       : 100%;
+    padding                     : 0;
+    margin-bottom               : 20px;
+    font-size                   : 16px;
+    line-height                 : inherit;
+    color                       : #333;
+    border                      : 0;
+    border-bottom               : 1px solid #e5e5e5;
 }
 .table > thead > tr > th {
-    vertical-align: bottom;
-    border-bottom: 1px solid #f2f2f2;
-    font-size: 14px;
-    font-weight: 400;
-    background-color: rgb(239, 233, 233);
+    vertical-align              : bottom;
+    border-bottom               : 1px solid #f2f2f2;
+    font-size                   : 14px;
+    font-weight                 : 400;
+    background-color            : rgb(239, 233, 233);
 }
