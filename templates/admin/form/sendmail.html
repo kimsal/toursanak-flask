@@ -48,7 +48,7 @@
                               {% with messages = get_flashed_messages() %}
                                 {% if messages %}
                                   {% for message in messages %}
-                                    <li class="alert alert-warning"> 
+                                    <li class="alert"> 
                                       {{ message }}
                                     </li>
                                   {% endfor %}
@@ -74,14 +74,14 @@
                                     <br/></h3></center>
                                     {%for group in groups%}
                                     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 groups group_{{group.id}}">
-                                    <input type="checkbox" name="group_{{group.id}}"/>
+                                    <input type="checkbox" name="groups" id="group_{{group.id}}" value="{{group.id}}"/>
                                         {{group.name}}
                                     </div>
                                     <script type="text/javascript">
                                     //fix here
                                         $(".group_{{group.id}}").click(function(){
                                             var help;
-                                            if($('.group_{{group.id}} input[name="group_{{group.id}}"]').is(':checked')){
+                                            if($('.group_{{group.id}} input').is(':checked')){
                                                 help=false;
                                             }
                                             else
@@ -89,7 +89,7 @@
                                                 help=true;
                                             }
                                             // console.log(help);
-                                            $('.group_{{group.id}} input[name="group_{{group.id}}"]').attr("checked", help);
+                                            $('.group_{{group.id}} input').attr("checked", help);
                                         });
                                     </script>
                                     {%endfor%}

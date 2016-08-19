@@ -13,8 +13,6 @@ import math
 from models import *
 from forms import *
 import atexit
-import logging
-logging.basicConfig()
 # def sendEmail():
 # 	print 'send email'
 # sched = Scheduler()
@@ -986,48 +984,11 @@ def admin_mail():
 email_count=0
 subject=''
 description=''
-group_send=[]
-sched = Scheduler()
-#after send need to clear variables
 def sendEmail():
-	with app.app_context():
-		global email_count
-		global subject
-		global description
-		global group_send
-		print '======>>>'
-		obj=EmailList.query.limit(1)
-		if obj.count()>0:
-			email_count=email_count+1
-			for ob in obj:
-				#send email
-				print ob.name
-				try:
-					subject_send=subject.replace("{{name}}",ob.name)
-					description_send = description.replace("{{name}}",ob.name)
-					
-					subject_send=subject_send.replace("{{email}}",ob.email)
-					description_send = description_send.replace("{{email}}",ob.email)
-					msg = Message(subject_send,sender=email,recipients=[ob.email])
-					message_string=str(description_send)
-					msg.html = message_string
-					mail.send(msg)				
-					print "send email to => "+ob.name+"=>"+description_send
-					#remove email from email list after send
-					EmailList.delete(ob)
-				except Exception as e:
-					print e.message
-		else:
-			#clear variables
-			# sched.stop()
-			sched.shutdown(wait=False)
-			# Shutdown your cron thread if the web process is stopped
-			# atexit.register(lambda: sched.shutdown(wait=False))
-			print 'xx'
-			email_count=0
-			subject=''
-			description=''
-			group_send=[]
+	print 'send email here'
+	global email_count
+	email_count=email_count+1
+
 @app.route('/admin/email', methods = ['GET', 'POST'])
 @app.route('/admin/email/', methods = ['GET', 'POST'])
 @auth.login_required
@@ -1038,33 +999,12 @@ def admin_email():
 	else:
 		global subject
 		global description
-		global group_send
-		global sched
-		sched = Scheduler()
 		subject = request.form['subject']
-		description = request.form['description']
-		groups = request.form.getlist('groups')
-		for group in groups:
-			print str(group)+"========="
-			group_send.append(int(group))
-			# obj=Emailgroup.query.join(Email,Emailgroup.email_id==Email.id).filter(Emailgroup.group_id==int(group))
-			obj=Emailgroup.query.filter(Emailgroup.group_id==int(group))
-			for o in obj:
-				tmp=Email.query.filter_by(id=o.email_id)
-				for t in tmp:
-					#add to email list to send 
-					try:
-						help=EmailList.query.filter_by(email=t.email).first()
-						if help.count()<=0:
-							temp_object=EmailList(t.name,t.email)
-							EmailList.add(temp_object)
-						else:
-							print "Email already exists."
-					except Exception as e:
-						print e.message
+		description = request.form['detail']
+		groups = request.form['groups']
+		sched = Scheduler()
 		sched.add_interval_job(sendEmail, seconds=5)
 		sched.start()
-		flash("Your Email will be sent successfully.")
 		return redirect(url_for("admin_email"))
 @app.route('/admin/earn')
 @app.route('/admin/earn/')
