@@ -403,7 +403,28 @@ class Partner(db.Model):
     def delete(partner):
         db.session.delete(partner)
         return db.session.commit()
-
+class EmailList(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name  = db.Column(db.String(255))
+    email  = db.Column(db.String(255))
+    def __str__(self):
+        return self.name
+    # def update(self):
+    #     return session_commit()    
+    def to_Json(self):
+        return dict(id=self.id,
+            name=self.name,
+            email=self.email
+            )
+    def __init__(self,name,email):
+        self.name =name,
+        self.email =email
+    def add(messagelist):
+        db.session.add(messagelist)
+        return db.session.commit()
+    def delete(messagelist):
+        db.session.delete(messagelist)
+        return db.session.commit()
 if __name__ == '__main__':
     app.secret_key = SECRET_KEY
     app.config['DEBUG'] = True

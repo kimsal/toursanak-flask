@@ -31,6 +31,7 @@ sudo pip install flaskckeditor
 sudo apt-get install postgresql
 sudo apt-get install python-psycopg2
 sudo apt-get install libpq-dev
+pip install apscheduler==2.1.2
 
 #migrate database:
 python models.py db init

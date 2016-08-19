@@ -1,5 +1,20 @@
 {% include 'admin/header.html' %}
-
+    <style type="text/css">
+        .groups{
+            margin-top:10px;
+            margin-bottom: 10px;
+            padding:10px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color:#25373D;
+            color:white;
+            margin-left: 10px;
+        }
+        .groups:hover{
+            background-color:  #282830;
+        }
+    </style>
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -19,38 +34,93 @@
 		                    </h4>
                     	</div>
 	                    <div class="panel-body" >
-	                    	<!-- <div class="container"> -->
-	                    		
-	                    	<!-- </div> -->
+                            <div>
+                                <center>
+                                    If you have any problem in sending email, please try to turn on  <b>
+                                    <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank" /> Less secure apps</a></b>.
+                                </center>
+                            </div>
+	                    	<div class="table-responsive" style="border:none;">
+                          <!--form upload-->
+                          <div class="col-md-12 col-xs-12 col-md-12 col-lg-12" >
+                          <br/>
+                              <form class="form-horizontal" action="/admin/email/" method="POST" id="frm" enctype="multipart/form-data">
+                              {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                  {% for message in messages %}
+                                    <li class="alert"> 
+                                      {{ message }}
+                                    </li>
+                                  {% endfor %}
+                                {% endif %}
+                              {% endwith %}
+                                <!-- input title-->
+                                <div class="form-group">
+                                  <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                    Subject
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                      <input type="text" class="form-control" name="subject" placeholder="Subject" />     
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                                     <textarea class="form-control ckeditor" id="description" name="description"></textarea>
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <center><h3>
+                                    Select Group
+                                    <br/></h3></center>
+                                    {%for group in groups%}
+                                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 groups group_{{group.id}}">
+                                    <input type="checkbox" name="groups" id="group_{{group.id}}" value="{{group.id}}"/>
+                                        {{group.name}}
+                                    </div>
+                                    <script type="text/javascript">
+                                    //fix here
+                                        $(".group_{{group.id}}").click(function(){
+                                            var help;
+                                            if($('.group_{{group.id}} input').is(':checked')){
+                                                help=false;
+                                            }
+                                            else
+                                            {
+                                                help=true;
+                                            }
+                                            // console.log(help);
+                                            $('.group_{{group.id}} input').attr("checked", help);
+                                        });
+                                    </script>
+                                    {%endfor%}
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-md-12 text-right">
+                                    <center>
+                                      <button type="submit" class="btn btn-default btn-sm btn-primary">
+                                       <!-- onclick="getAllRemoveImages();"> -->
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                          Send
+                                        </button>
+                                      <button type="reset" class="btn btn-default btn-sm">
+                                      <i class="fa fa-ban" aria-hidden="true"></i>
+                                        Cancel
+                                      </button>
+                                    </center>
+                                  </div>
+                                </div>
+                                <input type="text" value="" name="all_removed_images" style="display:none;" />
+                              </form>
+                            
+                          </div>
+                          <!--end form upload-->
+                      </div>
 	                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- /#page-content-wrapper -->
-
-
-
-
- <script src="js/jquery.js"></script>
-    <script src="js/scroll.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    var image_string='';
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    $(".off-canvas-submenu").hide();
-    $(".off-canvas-submenu-call").click(function() {
-    var icon = $(this).parent().next(".off-canvas-submenu").is(':visible') ? '':'';
-    $(this).parent().next(".off-canvas-submenu").slideToggle('slow');
-    $(this).find("span").text(icon);
-});
-</script>
-</body>
-</html>
+    <script type="text/javascript" src="/static/admin/js/postform.js"></script>
+    <script type="text/javascript" src="/static/admin/js/postform2.js"></script>
+{% include 'admin/footer.html' %}
