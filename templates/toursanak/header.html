@@ -24,7 +24,7 @@
     {% elif page_name == 'category' %}
         <title>{{category_name}} | Toursanak</title>
         {%for c in category %}
-        <meta name="description" content="{{category_name}}, {{c.description}}">
+        <meta name="description" content="{{category_name}}, {{c.short_description}}">
         <meta name="keywords" content="{{category_name}}, {{c.keyword}}">
         {%endfor%}
     {% elif page_name == 'page' %}
