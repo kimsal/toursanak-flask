@@ -12,13 +12,16 @@ class PostForm(Form,CKEditor):
    date = TextField("Date")
    map = TextAreaField("Map (Optional)")
    category_id = SelectField('Category', choices=[], coerce=int)
+   keyword = TextAreaField("Keyword")   
    submit = SubmitField("Publish")
 
 class CategoryForm(Form):
    name = TextField("Name",[validators.Required("Please enter category name.")])
+   keyword = TextAreaField("Keyword")
 class PageForm(Form,CKEditor):
-	title = TextField("Title",[validators.Required("Please enter your title.")])
-	description = TextAreaField("Description",[validators.Required("Please enter your description.")])
+  title = TextField("Title",[validators.Required("Please enter your title.")])
+  keyword = TextAreaField("Keyword")
+  description = TextAreaField("Description",[validators.Required("Please enter your description.")])
 class UserMemberForm(Form):
    name = TextField("Name",[validators.Required("Please enter your name.")])
    email = TextField("Email",[validators.Required("Please enter your email.")])

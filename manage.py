@@ -582,7 +582,7 @@ def admin_post_add(slug=""):
 			   			else:
 			   				price=int(request.form["price"])
 			   			
-		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"])
+		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"],request.form['keyword'])
 			        	status=Post.add(obj)
 				        if not status:
 				            flash("Post added successfully")
@@ -622,7 +622,7 @@ def admin_post_add(slug=""):
 				   		images=images.replace('$$$$$$$$$$','$$$$$')
 				   		#end keep old images
 				   		# return old_images
-	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'price':request.form["price"],'short_description':request.form["short_description"],'map':request.form["map"] })
+	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'price':request.form["price"],'short_description':request.form["short_description"],'map':request.form["map"],'keyword':request.form['keyword'] })
 	   					status = db.session.commit()
 		   				if not status:
 		   					flash("Post updated successfully")
@@ -630,7 +630,7 @@ def admin_post_add(slug=""):
 		   			for post in obj:
 		   				tempFileName=post.feature_image
 	   				filename=tempFileName
-	   				obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],'category_id':request.form['category_id'],'feature_image':filename })
+	   				obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],'category_id':request.form['category_id'],'feature_image':filename ,'keyword':request.form['keyword']})
 	   				status = db.session.commit()
 	   				if not status:
 	   					flash("Post updated was successfully")
@@ -664,7 +664,7 @@ def admin_category_add(slug=""):
 		   		return redirect(url_for('admin_category_add'))
 	   		if not slug:
 	   			#add category
-		   		obj=Category(request.form['name'])
+		   		obj=Category(request.form['name'],request.form['keyword'])
 		   		status=Category.add(obj)
 				if not status:
 					flash("Category Added successfully")
@@ -674,7 +674,7 @@ def admin_category_add(slug=""):
 					return redirect(url_for('admin_category_add'))	
 			elif slug:
 				#update category
-	   			Category.query.filter_by(slug = slug).update({"slug" : slugify(request.form['name']) , "name" : request.form['name'] })
+	   			Category.query.filter_by(slug = slug).update({'keyword':request.form['keyword'],"slug" : slugify(request.form['name']) , "name" : request.form['name'] })
 	   			status = db.session.commit()
 	   			if not status:
 	   				flash("Category updated successfully")
@@ -713,7 +713,7 @@ def admin_page_add(slug=''):
 		   	else:
 		   		if not slug:
 		   			#add new
-			   		obj=Page(request.form['title'],request.form['description'])
+			   		obj=Page(request.form['title'],request.form['description'],request.form['keyword'])
 			   		status=Page.add(obj)
 					if not status:
 						flash("Page Added successfully")
@@ -722,7 +722,7 @@ def admin_page_add(slug=''):
 						flash("Error in adding page !")
 						return redirect(url_for('admin_page_add'))
 		   		elif slug:
-		   			Page.query.filter_by(slug = slug).update({"slug" : slugify(request.form['title']) , "title" : request.form['title'] , "description" : request.form['description']})
+		   			Page.query.filter_by(slug = slug).update({"slug" : slugify(request.form['title']) , "title" : request.form['title'] , "description" : request.form['description'],'keyword':request.form['keyword']})
 		   			status = db.session.commit()
 		   			if not status:
 		   				flash("Page updated successfully")
@@ -1197,7 +1197,7 @@ def single(slug='',pagination=1):
 				#return str(limit)
 				if category_name=='Blog':
 					return render_template(template+'/blog.html',page_name='category',category_slug=category_slug,category_name=category_name,posts=posts,pagin=int(pagin),current_pagin=int(pagination))
-				return render_template(template+'/category.html',page_name='category',category_slug=category_slug,category_name=category_name,posts=posts,pagin=int(pagin),current_pagin=int(pagination))
+				return render_template(template+'/category.html',category=category,page_name='category',category_slug=category_slug,category_name=category_name,posts=posts,pagin=int(pagin),current_pagin=int(pagination))
 			
 	except Exception as e:
 		return str(e.message)

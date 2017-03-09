@@ -73,6 +73,7 @@ class Category(db.Model):
     slug= db.Column(db.String(100),nullable=True)
     posts=db.relationship('Post', backref="category", lazy='dynamic')
     is_menu=db.Column(db.Integer,nullable=True,default=0)
+    keyword = db.Column(db.String(500),nullable=True)
     def get_absolute_url(self):
         return ('Category', (), {'slug': self.slug,'id': self.id,})
     def __str__(self):
@@ -82,9 +83,10 @@ class Category(db.Model):
             name=self.name,
             slug=self.slug
             )
-    def __init__(self, name):
+    def __init__(self, name,keyword=''):
         self.slug=slugify(name)
         self.name =name
+        self.keyword=keyword
     def add(category):
         db.session.add(category)
         return db.session.commit()
@@ -96,6 +98,7 @@ class Page(db.Model):
     title= db.Column(db.String(255),nullable=True,unique=True)
     slug= db.Column(db.String(255),nullable=True)
     description = db.Column(db.Text,nullable=True)
+    keyword = db.Column(db.String(500),nullable=True)
     published_at= db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp())
     is_menu=db.Column(db.Integer,nullable=True,default=0)
     def get_absolute_url(self):
@@ -109,10 +112,11 @@ class Page(db.Model):
             description=self.description,
             published_at="{}".format(self.published_at)
             )
-    def __init__(self, title,description):
+    def __init__(self, title,description,keyword=''):
         self.title = title
         self.slug =slugify(title)
         self.description=description
+        self.keyword=keyword
     def add(page):
         db.session.add(page)
         return db.session.commit()
@@ -122,6 +126,7 @@ class Page(db.Model):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255),nullable=True,unique=True)
+    keyword = db.Column(db.String(500),nullable=True)
     description = db.Column(db.Text,nullable=True)
     short_description = db.Column(db.Text,nullable=True)
     feature_image=db.Column(db.Text,nullable=True)
@@ -147,9 +152,10 @@ class Post(db.Model):
             images=self.images,
             price=self.price,
             map=self.map,
-            short_description=self.short_description
+            short_description=self.short_description,
+            keyword = self.keyword
             )
-    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',price=0,map='',short_description=''):
+    def __init__(self, title, description, category_id, feature_image, user_id,views=0,images='',price=0,map='',short_description='',keyword=''):
         self.title = title
         self.slug =slugify(title)
         self.description = description
@@ -161,6 +167,7 @@ class Post(db.Model):
         self.price=price
         self.map=map
         self.short_description=short_description
+        self.keyword=keyword
     def add(post):
         db.session.add(post)
         return db.session.commit()

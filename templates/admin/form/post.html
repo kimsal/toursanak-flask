@@ -83,6 +83,14 @@
                                 </div>
                                 <div class="form-group">
                                   <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+                                    {{ form.keyword.label }}
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                      {{ form.keyword(class_="form-control") }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
                                     {{ form.short_description.label }}
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -258,6 +266,7 @@
    $("#location").attr('value',"{{p.location}}");
    $("#file").attr('value',"{{p.file}}");
    $("#landscape img").addClass("img-responsive");
+   $('#keyword').html("{{p.keyword.replace('\n', '').replace('\r','')}}"); 
    //Load other images:
    loadOldImages("{{p.images}}");
    $("#short_description").html("{{p.short_description}}");

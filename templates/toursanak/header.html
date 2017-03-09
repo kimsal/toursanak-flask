@@ -18,18 +18,20 @@
     {% elif page_name == 'single' %}
         {%for post in post_object%}
             <title>{{post.title}} | Toursanak</title>
-            <meta name="description" content="toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world,{{post.title}},{{post.short_description}}">
-            <meta name="keywords" content="toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world,{{post.title}},{{post.short_description}}">
+            <meta name="description" content="{{post.title}},{{post.short_description}}">
+            <meta name="keywords" content="{{post.title}}, {{post.keyword}}">
         {%endfor%}
     {% elif page_name == 'category' %}
         <title>{{category_name}} | Toursanak</title>
-        <meta name="description" content="{{category_name}} toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
-        <meta name="keywords" content="{{category_name}} ,toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+        {%for c in category %}
+        <meta name="description" content="{{category_name}}, {{c.description}}">
+        <meta name="keywords" content="{{category_name}}, {{c.keyword}}">
+        {%endfor%}
     {% elif page_name == 'page' %}
         {%for page in page_object%}
             <title>{{page.title}} | Toursanak</title>
-            <meta name="description" content="{{page.title}} toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
-            <meta name="keywords" content="{{page.title}}Emerald - toursanak,tour,khmer,guide,visit,angkor,siemreab,Cambodia,book tour,visiting,angkor wat,asean tour, best tour in the world">
+            <meta name="description" content="{{page.title}}, {{page.short_description}}">
+            <meta name="keywords" content="{{page.title}}, {{page.keyword}}">
         {%endfor%}
     {% elif page_name == 'location' %}
         {%for location in location_object%}

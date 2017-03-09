@@ -44,8 +44,16 @@
                                           <!-- <input id="name" name="name" type="text" placeholder="Type your title here..." class="form-control"> -->
                                           {{ form.name.label }}
                                           </div>
-                                          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                                          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                                             {{ form.name(class_="form-control") }}
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                          {{ form.keyword.label }}
+                                          </div>
+                                          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                                            {{ form.keyword(class_="form-control") }}
                                           </div>
                                       </div>
                                       
@@ -120,6 +128,7 @@
      <script type="text/javascript">
        $('input#name').attr('value',"{{c.name|safe}}");  
        $('#frm').attr('action','/admin/category/edit/{{c.slug}}/');
+       $('#keyword').html("{{c.keyword}}"); 
      </script>
     {% endfor %}
 <script type="text/javascript">
