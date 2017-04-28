@@ -1,15 +1,7 @@
 {% include template_name+'/header.html' %}
 {%for page in page_object%} 
-<div class="banner post">
-	<div class="bg-overlay">
-		<div class="row text-center">
-			<b><h2 class="pageTitle"><br>
-				{{page.title}}
-			<h2></b>
-		</div>
-	</div>
-</div>
-<div class="container"​​ style="max-width: 860px;">
+
+<div class="container"​​ style="max-width: 860px; margin-top: 60px;">
 <br/>
 	{% if page.title=='RENTAL'%}
 	<div class="row" >
@@ -81,6 +73,9 @@
 		</div>
 	{%else%}
 
+		<h5 class="rentalTitle">ABOUT TOURSANAK AND OUR TEAM</h5>
+		<hr class="hrRental">
+		<br>
 		<div class="aboutBack">
 			{{page.description|safe}}
 		</div>

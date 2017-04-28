@@ -1,10 +1,6 @@
 {% include template_name+'/header.html' %} 
-<div class="banner post" >
-	<div class="bg-overlay" style="background 					: linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.3)), url("/static/{{template_name}}/image/1.jpg22");">
-		<div class="row text-center">
-		</div>
-	</div>
-</div>
+
+<br>
 
 <section class="container-fluid" id="section2">
     <div class="container ">
@@ -17,7 +13,7 @@
            	{%for post in posts%}
            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
            		<a href="/{{post.slug}}">
-	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url('{{post.feature_image}}');background-size: cover;' class="bg-overlay-small" >
+	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small" >
 					</div>
 					<div class="TitleBack">
 						<h6 class="IndexTitle">{{post.title}}</h6>
