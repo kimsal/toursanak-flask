@@ -16,11 +16,11 @@
 </section>
 
 <section class="container-fluid" id="section2">
-    <div class="container ">
+    <div class="container " style="max-width: 900px;">
     	{%for post in slide%}
     	{%set arr_images=post.images.split("$$$$$")%}
         <div class="row section-slide hidden-xs ">
-            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 padding-overlay">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 padding-overlay" style="padding: 0px;">
 				<!--slide-->
 				<div class="demo-1">
 		            <div id="example1" class="core-slider">
@@ -29,7 +29,7 @@
 		                  	{%for image in arr_images%}
 		                    <div class="core-slider_item">
 		                    	<a href="/{{post.slug}}">
-		                    	<img src="/static/images/images/{{image}}" alt="img">
+		                    	<img src="/static/images/images/{{image}}" alt="img" class="img-responsive">
 		                    	</a>
 		                    </div>
 		                    {%endfor%}

@@ -118,3 +118,19 @@ h2 {
 .memberPos{
     color: #2ecc71;
 }
+
+@media only screen and (max-width: 750px) {
+
+
+.materailTitle{
+    font-weight: bold;
+    font-size: 18px;
+    vertical-align: middle;
+    color: #e74c3c;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 25px;
+}
+
+
+}
