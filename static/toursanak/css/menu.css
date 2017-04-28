@@ -1,18 +1,12 @@
 
 .navbar-trans {
-	background-color 			: #198F31;
-    color 						: #cdcdcd;
-    border-width 				: 0;
-    text-transform 				: uppercase;
-
+    background-color: #27ae60;
+    color: #cdcdcd;
+    border-width: 0;
+    text-transform: uppercase;
     -moz-box-shadow: 0px 4px 0px #16e08f;
     -webkit-box-shadow: 0px 4px 0px #16e08f;
-    box-shadow: 0px 2px 0px #37aa0d;
-
-
-
-
-
+    box-shadow: 0px 0px 0px #37aa0d;
 }
 .navbar-form .input-group > .form-control {
     width 						: 100%;
@@ -30,15 +24,17 @@
     color 						:	white;
 }
 
-.navbar-trans li>a:focus,.navbar-trans li.active {
-	background-color 			: 	#f44d3c;
-	color 						: 		#333;
+.navbar-trans li>a:focus, .navbar-trans li.active {
+    background-color: rgba(60, 244, 91, 0);
+    color: rgb(0, 121, 0);
 }
 
 .navbar-trans li>a:hover {
 	background-color 			: rgba(102, 171, 80, 0.55);
 	color 						: #fff;
 	opacity 					: 0.5;
+    transition: 0.5s;
+    font-weight: bold;
 }
 
 .navbar-trans a{
@@ -53,6 +49,13 @@
 	-webkit-box-shadow 			: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(100,100,100,0.6);
 	box-shadow 					: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(100,100,100,0.6);
 }
+
+@media (min-width: 1200px){
+    .container {
+        width: 960px;
+    }
+}
+
 @media screen and (min-width: 900px) {
 	.container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
 	    margin-right 			: 5px;
@@ -66,7 +69,13 @@
 	}
 }
 .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
-    z-index 					: 2;
-    margin-left 				: -1px;
-    background 					: #198F31;
+    z-index: 2;
+    margin-left: 0px;
+    border-radius: 0px;
+    border: 1px solid #2ecc71;
+    background: #2ecc71;
+}
+.formSearch{
+    border: 1px solid #2ecc71;
+    border-radius: 0px;
 }

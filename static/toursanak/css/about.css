@@ -5,7 +5,7 @@ html,body {
 	height                : 100%;
     background-size       : cover;
     color                 : #444;
-    font-family           : 'Lato', sans-serif;
+    font-family           : Poppins !important;
 }
 
 .banner {
@@ -29,9 +29,6 @@ html,body {
 	font-size             : 19px;
 	font-weight           : 200;
 	line-height           : 1.5;
-}
-p {
-    margin: 0px 10px 10px;
 }
 h2 {
     margin: 0px 10px 10px;
@@ -60,4 +57,64 @@ h2 {
 	font-size               : 22px;
 	font-size               : 500;
 	text-transform          : uppercase;
+    color: #27ae60;
+}
+.pageTitle{
+  font-weight: bold !important;
+  font-size: 60px !important;
+  color: #fff;
+}
+.rentalTitle{
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    color: #27ae60;
+}
+.hrRental{
+    border: 1px solid #26ae60;
+    margin-top: -3px;
+    margin-bottom: 3px;
+    width: 15%;
+}
+.rentalBack{
+    background-color: #f5f5f5 !important;
+    margin-top: 15px;
+    padding: 20px;
+}
+/*.imgBack{
+    background-color: #fff;
+    padding: 10px;
+}*/
+.materailTitle{
+    font-weight: bold;
+    font-size: 25px;
+    vertical-align: middle;
+    color: #e74c3c;
+}
+.aboutTitle{
+    color: #26ae60;
+    font-weight: bold;
+    font-size: 18px;
+}
+.aboutBack{
+    background-color: #f5f5f5;
+    padding: 15px 10%;
+}
+.hrTeam{
+    width: 5%;
+    border: 1px solid #26ae60;
+    margin-top: -3px;
+    margin-bottom: 3px;
+}
+.memberBack{
+    background-color: #f5f5f5;
+    padding: 15px 30px;
+    margin-top: 10px; 
+}
+.memberName{
+    color: #26ae60;
+    font-weight: bold;
+}
+.memberPos{
+    color: #2ecc71;
 }

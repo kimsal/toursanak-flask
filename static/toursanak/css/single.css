@@ -5,7 +5,7 @@ html,body {
 	height 						: 100%;
     background-size 			: cover;
     color 						: #444;
-    font-family 				: 'Lato', sans-serif;
+    font-family           : Poppins !important;
 }
 .banner {
 	width 						: 100%;
@@ -31,6 +31,7 @@ html,body {
 	padding-bottom 				: 10px;
 	font-size 					: 16px;
 	color 						: green;
+	font-weight: bold;
 }
 .desc {
 	font-size 					: 19px;
@@ -47,15 +48,16 @@ html,body {
 	font-size 					: 20px;
 	font-weight 				: 300;
 	color 						: white;
-	background-color 			: #282256;
+	background-color 			: #27ae60;
+	padding: 15px 5px;
 }
 .btn1 {
 	width 						: 100%;
 	border-radius				: 2px;
-	padding 					: 13px 25px 12px 25px;
+	padding 					: 15px;
 	font-size 					: 18px;
 	font-weight 				: 500;
-	background-color 			: rgba(24, 90, 3, 0.88);
+	background-color 			: #27ae60;
 	color 						: #F6F7F2;
 	margin-top 					: 15px;
 }
@@ -70,12 +72,12 @@ html,body {
 }
 
 .bg-overlay-small {
-    background 					: linear-gradient(rgba(83, 84, 81, 0.8), rgba(53, 54, 62, 0.15)), url("../image/tuktuk.png");
+    background 					: linear-gradient(rgba(83, 84, 81, 0.8), rgba(53, 54, 62, 0.15)), url("../image/tuktuk.jpg");
     background-repeat           : no-repeat;
     background-size 			: cover;
     background-position 		: center center;
     color 						: #fff;
-    height 						: 400px;
+    height 						: 200px;
     padding-top 				: 50px;
     margin-top 					: 1px;
     background-size 			: cover;
@@ -89,4 +91,7 @@ html,body {
 }
 .title :hover {
 	text-decoration 			: none;
+}
+tr td h2{
+	font-size: 18px !important;
 }

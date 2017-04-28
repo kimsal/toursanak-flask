@@ -5,7 +5,7 @@ html,body {
 	  height                : 100%;
     background-size       : cover;
     color                 : #444;
-    font-family           : 'Lato', sans-serif;
+    font-family           : Poppins !important;
 }
 @media (min-width:768px) {
     h1 {
@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-    color                 : #111;
+    color                 : #666;
 }
 
 .icon-bar {
@@ -114,7 +114,7 @@ section {
 }
   
 #section2 {
-  background-color          : #edefed;
+  background-color          : #fff;
 }
 
 #section3 {
@@ -126,7 +126,7 @@ section {
 }
 
 #section6 {
-    background-color        : #eee;
+    background-color        : #fff;
     min-height              : 130px;
     padding-top             : 0px;
     padding-bottom          : 40px;
@@ -208,19 +208,48 @@ section {
   padding                   : 5px;
 }
 .my-mission {
-  font-size                 : 22px;
-  line-height               : 1.1;
-  font-weight               : bold;
-  padding-left              : 5px;
-  padding-right             : 5px;
-  padding-top               : 20px;
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px;
+    color: #27ae60;
+}
+.indexHr{
+  margin-top: -3px;
+  margin-bottom: 4px;
+  border: 1px solid #27ae60;
+  width: 10%;
+  margin-left: 10%;
+}
+.hrActivities{
+  margin-top: -3px;
+  margin-bottom: 4px;
+  border: 1px solid #27ae60;
+  width: 5%;
+}
+.BackGround{
+  background-color: #f5f5f5;
+  padding: 5px 70px;
 }
 .desc {
-  font-size               : 29px;
+  font-size               : 18px;
   padding-left            : 5px;
   padding-right           : 5px;
-  padding-top             : 30px;
+  padding-top             : 5px;
   font-weight             : 300;
+}
+.TitleBack{
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+}
+.IndexTitle{
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  color: #27ae60;
 }
 .demo-1 { max-width:6200px; height:393px;margin:0px auto;}
 .section-box1 {
@@ -231,10 +260,16 @@ section {
 }
 .row-space-1 {
   margin-bottom             : 6px;
-  font-size                 : 23px;
-  margin-top                : 6px;
-  color                     : rgba(0, 128, 0, 0.67);
+  font-size                 : 25px;
+  margin-top                : 30px;
+  color                     : #27ae60;
+  font-weight: bold;
   text-transform            : uppercase;
+}
+.hrTour{
+  border: 1px solid #27ae60;;
+  margin-top: -3px;
+  width: 3%;
 }
 /*box search*/
 .form {
@@ -271,4 +306,9 @@ section {
   }
 .hidden {
     display                 : block !important;
+}
+
+.post{
+  font-family: Poppins;
+  font-weight: bold;
 }

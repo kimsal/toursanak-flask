@@ -5,7 +5,7 @@ html,body {
 	height 				: 100%;
     background-size 	: cover;
     color 				: #444;
-    font-family 		: 'Lato', sans-serif;
+    font-family           : Poppins !important;
 }
 @media screen and (max-width: 600px) {
 	form {
