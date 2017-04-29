@@ -13,7 +13,8 @@
 			    </i>
 		    </div>
 		    <div class="col-sm-12" style="margin-bottom:10px;">
-			   <h4 style="color:#2CC990">Booking for: <a href="/{{slug}}"  style="color:#2CC990"><b>{{post_title}}</b></a></h4>
+			   <h4 class="postTitle">{{post_title}}</h4>
+			   <center><hr class="hrPost"></center>
 		    </div>
 			<div class="form">
 		      	<form action="" method="" name="frm" id="frm">
@@ -23,7 +24,7 @@
 				  {{ form.phone(class_="input-type",placeholder="Phone Number...") }}
 				  {{ form.detail(class_="form-control hresize",placeholder="Write your request here...",rows='4') }}
 
-				  <input class="input-type" type="button" class="btn-book btn btn-default" name="sub" value="Book" id="booking">
+				   <center><button class="btn-book btn btn-default bookBtn"> Book Now</button></center>
 				</form>
 			</div>
 		</div>
