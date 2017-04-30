@@ -6,49 +6,47 @@
 		</div>
 	</div>
 </div>
-<div class="list post" style="background-color:#edefed">
-	<div class="container">
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-			<div class="contact">
-				ADDRESS:<br>
-				<i class="fa fa-map-marker" aria-hidden="true"></i>
-				<small>
-					#17, Street 604, Toul Kok, Phnom Penh 
-				</small>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-			<div class="contact">
-				 PHONE:<br>
-				 <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-				 <small>
-				 	855-70-453-236
-				 </small>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-			<div class="contact">
-				EMAIL:<br>
-				<i class="fa fa-envelope-o" aria-hidden="true"></i>
-				<small>
-					toursanak@gmail.com
-				</small>
-			</div>
-		</div>
-	</div>
+<div class="list post" style="background-color:#fff; margin-top: 15px;">
 	{%for post in post_object%}
 	<div class="container post">
 		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="row" style="background-color: #f5f5f5; margin-bottom: 15px;">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<div class="contact">
+					<center>ADDRESS</center>
+					<small>
+						#35, Street 600bis, Toul Kork, Phnom Penh. 
+					</small>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<div class="contact">
+					 <center>PHONE</center>
+					 <small>
+					 	+855-70-453-236
+					 </small>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<div class="contact">
+					<center>EMAIL</center>
+					<small>
+						toursanak@gmail.com
+					</small>
+				</div>
+			</div>
+			<hr>
+		</div>
 			<!-- <div class="row"> -->
-				<h3>
+				<h4 style="font-weight: bold;">
 					{{post.title}}
-				</h3>
-				<b>{{post.short_description}}</b>
-				<hr/>
+				</h4>
+				<p style="font-weight: normal;">{{post.short_description}}
+				{{post.description|safe}}</p>
 			<!-- </div> -->
 			<!-- <div class="row"> -->
 				<!-- <p class="desc no"></p> -->
-					{{post.description|safe}}
+
 			<!-- </div> -->
 			
 			<div class=" post">
@@ -81,19 +79,20 @@
 			<!-- <div class="row"  > -->
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
 					<div class="row price" id="main_column">
-						<div class="col-sm-6 col-xs-12 col-lg-6 col-md-6">$ {{post.price}}</div>
-						<div class="col-sm-6 col-xs-12 col-lg-6 col-md-6">Per Person</div>
+						<div class="col-sm-6 col-xs-12 col-lg-6 col-md-6" style="font-weight: bold;">$ {{post.price}}</div>
+						<div class="col-sm-6 col-xs-12 col-lg-6 col-md-6" style="font-weight: bold;">Per Person</div>
 					</div>
 					<div class="row">
 						<a href="/booking/{{post.slug}}">
 							<button type="submit" class="btn btn-default btn1">
 							    <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-							    Request To Book
+							    <span style="font-weight: bold;"> Request To Book </span>
+							    <i class="fa fa-hand-o-left" aria-hidden="true"></i>
 							</button>
 						</a>
 					</div>
-					<div class="row" style="background: #FF7416;margin-top:15px;">
-						<center><h5 style="color:white;">We deliver Tuk Tuk</h5></center>
+					<div class="row" style="background: #27ae60;margin-top:15px; padding: 10px;">
+						<center><h4 style="color:white; font-weight: bold;">We deliver Tuk Tuk</h4></center>
 					</div>
 					<div class="row">
 						<a href="#">
