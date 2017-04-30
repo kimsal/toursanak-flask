@@ -987,7 +987,7 @@ email_count=0
 subject=''
 description=''
 group_send=[]
-sched = Scheduler()
+# sched = Scheduler()
 #after send need to clear variables
 def sendEmail():
 	with app.app_context():
@@ -1040,7 +1040,7 @@ def admin_email():
 		global description
 		global group_send
 		global sched
-		sched = Scheduler()
+		# sched = Scheduler()
 		subject = request.form['subject']
 		description = request.form['description']
 		groups = request.form.getlist('groups')
