@@ -1,7 +1,7 @@
 {% include template_name+'/header.html' %} 
 <link rel="stylesheet" type="text/css" href="/static/{{template_name}}/css/single.css">
 <div class="banner post" >
-	<div class="bg-overlay" style="background 					: linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.3)), url("/static/{{template_name}}/image/1.jpg");">
+	<div class="bg-overlay" style="background 					: linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.3)), url('/static/{{template_name}}/image/1.jpg');">
 		<div class="row text-center">
 		</div>
 	</div>
@@ -62,7 +62,8 @@
 		            // var temp='';
 		            for(var i=0;i<images.length;i++){
 		            	// alert(i);
-		            	images[i]="/static/images/images/"+images[i];
+		            	if(images[i]!='')
+		            		images[i]="/static/images/images/"+images[i];
 		            }
 		            console.log(images);
 		            // images=temp;
