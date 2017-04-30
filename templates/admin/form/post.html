@@ -155,34 +155,13 @@
 
                                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                      <div class="panel panel-body">
-                                       <div class="span4 cropme" id="landscape" style="width:200px; height: 150px;">
+                                       <div class="span4 cropme" id="" style="width:200px; height: 150px;">
+                                        <input type="file" name="feature_image" id="feature_image" style="display:none;">
+                                          <img src="/static/images/no image.jpg" class="img-responsive" id="feature_image"/>
                                        </div>
                                     </div>
                                   </div>
                                 </div>
-                               <script>
-                                 // Init Simple Cropper
-                                $('.cropme').simpleCropper('feature_image','feature_image','txt_temp_image');
-                                $('#portrait').hide();
-                                $('.switch').click(function (){
-                                    $(this).text("Switch to "+($('#portrait').is(":visible") ? "Portrait" : "Landscape"));
-                                  $('#portrait').toggle();
-                                  $('#landscape').toggle();
-                                });    
-
-
-                                var _gaq = _gaq || [];
-                                _gaq.push(['_setAccount', 'UA-36251023-1']);
-                                _gaq.push(['_setDomainName', 'jqueryscript.net']);
-                                _gaq.push(['_trackPageview']);
-
-                                (function() {
-                                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                                  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                                })();
-
-                              </script>
                                 <!--end phos add feature image -->
                                 <div class="form-group">
                                   <div class="col-md-12 col-xs-12 co-md-12 col-lg-12 other_image">
@@ -251,6 +230,9 @@
 
     <!-- Menu Toggle Script -->
 <script type="text/javascript" src="/static/admin/js/postform.js"></script>
+<script type="text/javascript">
+  var feature_image='';
+</script>
   {% for p in post %}
   <script type="text/javascript">
    $('input#title').attr('value',"{{p.title|safe}}"); 
@@ -259,7 +241,7 @@
    $('select#category_id option[value="{{p.category_id}}"]').attr("selected","selected");
    feature_image="{{p.feature_image}}";
 
-   $("#landscape").html('<img src="'+feature_image+'" class="img-responsive"/>');
+   $("#landscape").html('<img src="/static/images/images/'+feature_image+'" class="img-responsive"/>');
    $(".txt_temp_image").attr('value',feature_image);
    $("#duration").attr('value',"{{p.duration}}");
    $("#price").attr('value',"{{p.price}}");
@@ -278,7 +260,8 @@
   if(feature_image==''){
     feature_image='/static/images/no image.jpg';
    }
-   $("#landscape").html('<img src="'+feature_image+'" style="width:200px;height:150px" class="img-responsive"/> ');
+
+   $("img#feature_image").attr('src','/static/images/images/'+feature_image);
   //input only number
     $("#price").keydown(function (e) {
         // Allow: backspace, delete, tab, escape, enter and .
@@ -300,3 +283,25 @@
   <script type="text/javascript" src="/static/admin/js/postform2.js">
 </script>
 {% include 'admin/footer.html' %} 
+<script type="text/javascript">
+  //feature image
+   function readURL1(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('img#feature_image').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$('input#feature_image').change(function(){
+    readURL1(this);
+});
+$('img#feature_image').click(function(){
+  $("input#feature_image").click();
+});
+</script>

@@ -560,8 +560,16 @@ def admin_post_add(slug=""):
 		   		now = str(datetime.now())
 				now= now.replace(':',"",10).replace(' ','',4).replace('.','',5).replace('-','',5)
 		   		result = request.form
-				filename=str(request.form['txt_temp_image'])
-				# return filename
+				# filename=str(request.form['txt_temp_image'])
+				f = request.files['feature_image']
+				help_filename=secure_filename(f.filename)
+				filename=now+'-'+secure_filename(f.filename)
+				#upload feature image
+				# return secure_filename(f.filename)+">>>>>>>>>"
+				if help_filename!='':
+					f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))				
+				else:
+					filename=''
 				if not slug:
 		   			if file:
 		   				images=''
@@ -581,7 +589,6 @@ def admin_post_add(slug=""):
 			   				price=0
 			   			else:
 			   				price=int(request.form["price"])
-			   			
 		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"],request.form['keyword'])
 			        	status=Post.add(obj)
 				        if not status:
@@ -1267,4 +1274,4 @@ def search(pagination=1):
 if __name__ == '__main__':
 	 app.run(use_reloader=False,debug = True,host='0.0.0.0')
 #replace white space:
-#http://docs.python-requests.org/en/master/user/quickstart/
+#http://docs.python-requests.org/en/master/user/quickstart/	

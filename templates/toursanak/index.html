@@ -69,7 +69,7 @@
            	{%for post in posts_top%}
            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
            		<a href="/{{post.slug}}">
-	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small" >
+	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("/static/images/images/{{post.feature_image}}");background-size: cover;' class="bg-overlay-small" >
 					</div>
 					<div class="TitleBack">
 						<h6 class="IndexTitle">{{post.title}}</h6>
@@ -94,7 +94,7 @@
         	{%for post in posts_bottom %}
            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
            		<a href="/{{post.slug}}">
-	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small">
+	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("/static/images/images/{{post.feature_image}}");background-size: cover;' class="bg-overlay-small">
 					</div>
 					<div class="TitleBack">
 						<h6 class="IndexTitle">{{post.title}}</h6>
@@ -116,7 +116,7 @@
 		{%for partner in partners%}
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay post ">
 			<a href="{{partner.url}}">
-				<div class="bg-overlay-small" style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{partner.feature_image}}"); background-size: cover;'>
+				<div class="bg-overlay-small" style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("/static/images/images/{{partner.feature_image}}"); background-size: cover;'>
 					<div class="row text-center">
 				        <h4 class="title">
 				        	<p >
