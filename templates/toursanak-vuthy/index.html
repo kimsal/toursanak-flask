@@ -1,0 +1,134 @@
+{% include template_name+'/header.html' %} 
+<section class="container-fluid section1 " id="section1">
+    <div class="v-center no" style="height:20%;">
+        <h1 class="text-center post">Join with TOURSANAK</h1>
+        <h2 class="text-center lato animate slideInDown post">Happy <b>Smile </b> With Us</h2>
+        <p class="text-center">
+            <br>
+            <div class="container">
+				<div class="hidden-xs col-sm-3 col-md-3 col-lg-3"></div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				</div>
+				<div class="hidden-xs col-sm-3 col-md-3 col-lg-3"></div>
+			</div>
+        </p>
+    </div>
+</section>
+
+<section class="container-fluid" id="section2">
+    <div class="container " style="max-width: 900px;">
+    	{%for post in slide%}
+    	{%set arr_images=post.images.split("$$$$$")%}
+        <div class="row section-slide hidden-xs ">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12 padding-overlay" style="padding: 0px;">
+				<!--slide-->
+				<div class="demo-1">
+		            <div id="example1" class="core-slider">
+		                <div class="core-slider_viewport">
+		                  <div class="core-slider_list">
+		                  	{%for image in arr_images%}
+		                    <div class="core-slider_item">
+		                    	<a href="/{{post.slug}}">
+		                    	<img src="/static/images/images/{{image}}" alt="img" class="img-responsive">
+		                    	</a>
+		                    </div>
+		                    {%endfor%}
+		                  </div>
+		                </div>
+		                <div class="core-slider_nav">
+		                  <div class="core-slider_arrow core-slider_arrow__right"></div>
+		                  <div class="core-slider_arrow core-slider_arrow__left"></div>
+		                </div>
+		              <div class="core-slider_control-nav"></div>
+		        	</div>
+		        </div>
+				<!--end slide-->
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px;">
+            	<div class="BackGround">
+	            	<div class="row">
+		            	<h1 class="my-mission">
+							{{post.title}}
+		            	</h1>
+		            	<hr class="indexHr">
+		            </div>
+		            <div class="row">
+		            	<p class="desc">
+		            		{{post.short_description|safe|truncate(200)}}
+		            	</p>
+		            </div>
+		        </div>
+            </div>
+        </div>
+        {%endfor%}
+        <center>
+        	<h1 class="row-space-1">TOUR</h1>
+        	<center><hr class="hrTour"></center>
+        </center>
+        <div class="row section-box1">
+           	{%for post in posts_top%}
+           	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
+           		<a href="/{{post.slug}}">
+	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small" >
+					</div>
+					<div class="TitleBack">
+						<h6 class="IndexTitle">{{post.title}}</h6>
+						<p>{{post.description|striptags|truncate(80)}}</p>
+					</div>
+				</a>
+           	</div>
+           	{%if loop.index%3==0%}
+           		<div class="clearfix"></div>
+           	{%endif%}
+           	{%endfor%}
+           	
+        </div>
+        {%if posts_bottom.count()>0%}
+        <center>
+        	<h1 class="row-space-1">ACTIVITIES</h1>
+        	<center><hr class="hrActivities"></center>
+        	<br>
+        </center>
+        {%endif%}
+        <div class="row section-box1">
+        	{%for post in posts_bottom %}
+           	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
+           		<a href="/{{post.slug}}">
+	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small">
+					</div>
+					<div class="TitleBack">
+						<h6 class="IndexTitle">{{post.title}}</h6>
+						<p>{{post.description|striptags|truncate(80)}}</p>
+					</div>
+				</a>
+           	</div>
+           	{%endfor%}
+        </div>
+    </div>
+    <!--/container-->
+</section>
+<!-- <section class="container-fluid fluid1" id="section6">
+	<div class="container">
+		<center>
+		<h1 class="row-space-1">OUR PARTNERS</h1>
+		<center><hr class="hrActivities"></center>
+		</center>
+		{%for partner in partners%}
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay post ">
+			<a href="{{partner.url}}">
+				<div class="bg-overlay-small" style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{partner.feature_image}}"); background-size: cover;'>
+					<div class="row text-center">
+				        <h4 class="title">
+				        	<p >
+				        	{{partner.name}}
+				        	</p>
+				        </h4>
+					</div>
+				</div>
+			</a>
+		</div>
+		{%endfor%}
+	</div>
+</section> -->
+
+{% include template_name+'/footer.html' %} 

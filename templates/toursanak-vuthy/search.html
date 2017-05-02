@@ -1,0 +1,87 @@
+{% include template_name+'/header.html' %} 
+
+<section class="container-fluid" id="section2">
+    <div class="container ">
+        <center>
+        	<h1 class="row-space-1"><b>{{search.replace("+"," ")}} </b></h1>
+        </center>
+        <div class="row section-box1">
+           	{%for post in posts %}
+           	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
+           		<a href="/{{post.slug}}">
+	           		<div style='background: linear-gradient(rgba(10, 15, 6, 0.56), rgba(77, 81, 74, 0.08)), url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small" >
+
+						<div class="row text-center">
+					        <h4 class="title">
+					        	<p class="myp">
+					        		{{post.title}}
+					        	</p>
+					        </h4>
+						</div>
+					</div>
+				</a>
+           	</div>
+           	{%endfor%}
+           	
+        </div>
+        <!--pagination-->
+    <center>
+        <ul class="pagination pagination-sm">
+        {% if pagin > 1 %}
+            {% if pagin < 8 %}
+                	{% for page in range(1,pagin+1) %}
+                    	{% if page == current_pagin %}
+                    		<li class="active">
+                    			<a href="/{{category_slug}}/{{page}}">
+                    				{{page}}
+                    			</a>
+                    		</li>
+                    	{%else%}
+                    		<li>
+                    			<a href="/{{category_slug}}/{{page}}">
+                    				{{page}}
+                    			</a>
+                    		</li>
+                    	{%endif%}
+					{%endfor%}
+				</ul>
+			{%else %}
+				<li class="{%if current_pagin==1 %}active{%endif%}">
+					<a href="/{{category_slug}}/1">1</a>
+				</li>
+				<li class="{%if current_pagin==2 %}active{%endif%}">
+					<a href="/{{category_slug}}/2">2</a>
+				</li>
+				<li class="{%if current_pagin==3 %}active{%endif%}">
+					<a href="/{{category_slug}}/3">3</a>
+				</li>
+				<li class="{%if current_pagin==4 %}active{%endif%}">
+					<a href="/{{category_slug}}/4">4</a>
+				</li>
+				<li>
+					<a href="#">...</a>
+				</li>
+				{% for page in range(pagin-4,pagin+1) %}
+					{% if current_pagin == page%}
+				  <li class="active">
+				  	<a href="/{{category_slug}}/{{page}}">
+				  		{{page}}
+				  	</a>
+				  	</li>
+				 {%else%}
+				 	<li>
+				  	<a href="/{{category_slug}}/{{page}}">
+				  		{{page}}
+				  	</a>
+				  	</li>
+				 {%endif%}
+				{%endfor%}
+			{%endif%}
+		{%endif%}
+		</ul>
+		</center>
+    <!--End pagination-->
+    </div>
+    <!--/container-->
+</section>
+{% include template_name+'/footer.html' %} 

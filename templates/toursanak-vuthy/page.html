@@ -1,0 +1,120 @@
+{% include template_name+'/header.html' %}
+{%for page in page_object%} 
+
+<div class="container"​​ style="max-width: 860px; margin-top: 60px;">
+<br/>
+	{% if page.title=='RENTAL'%}
+	<div class="row" >
+		<h5 class="rentalTitle">ADVENTURE EQUIPMENTS RENTAL</h5>
+		<hr class="hrRental">
+		<div class="rentalBack">
+			<div class="row" style="padding: 0px 15px;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="imgBack">
+						<img src="http://www.toursanak.com/static/upload/201608021122192629.png" class="img-responsive">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<h5 class="materailTitle">BIke: 6$/day</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="rentalBack">
+			<div class="row" style="padding: 0px 15px;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="imgBack">
+						<img src="http://www.toursanak.com/static/upload/201608021122489898.png" class="img-responsive">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<h5 class="materailTitle">Helmet: 1$/day</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="rentalBack">
+			<div class="row" style="padding: 0px 15px;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="imgBack">
+						<img src="http://www.toursanak.com/static/upload/201608021123256107.png" class="img-responsive">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<h5 class="materailTitle">1 pair of pannier: 7$/day</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="rentalBack">
+			<div class="row" style="padding: 0px 15px;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="imgBack">
+						<img src="http://www.toursanak.com/static/upload/201608021124037919.png" class="img-responsive">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<h5 class="materailTitle">1 pair of pannier and helmet: 7.5$</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="rentalBack">
+			<div class="row" style="padding: 0px 15px;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="imgBack">
+						<img src="http://www.toursanak.com/static/upload/201608021124262950.png" class="img-responsive">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<h5 class="materailTitle">1 tent for 2 people: 4$/night</h5>
+				</div>
+			</div>
+		</div>
+	{%else%}
+
+		<h5 class="rentalTitle">ABOUT TOURSANAK AND OUR TEAM</h5>
+		<hr class="hrRental">
+		<br>
+		<div class="aboutBack">
+			{{page.description|safe}}
+		</div>
+	{%endif%}
+	</div>
+
+
+	<div style="height:50px;"></div>
+	{%if page.title=="ABOUT"%}
+		{%if members.count>0%}
+			<div class="row">
+				<center><h2 class="myh4"><b>Our Team</b></h2></center>
+				<hr class="hrTeam">
+			</div>
+		{%endif%}
+		<div style="height:50px;"></div>
+	{%endif%}
+
+</div>
+{%if page.title=="ABOUT"%}
+<div class="container" style="max-width: 860px;">
+	<!-- Team Members Row -->
+	<div class="row no">
+		{%for member in members %}
+		<div class="memberBack">
+		<div class="row" style="padding: 0px 15px;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<img class="img-circle img-responsive" style="margin: 0 auto;" src="{{member.feature_image}}" alt="">
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<h3 class="memberName">{{member.name}} <br> <small class="memberPos">{{member.possition}}</small></h3>
+					<p>{{member.detail}}</p>
+				</div>
+			</div>
+		</div>
+		{%endfor%}
+	</div>
+</div>
+<br>
+{%endif%}
+{%endfor%}
+{% include template_name+'/footer.html' %} 
