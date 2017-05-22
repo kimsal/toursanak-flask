@@ -1,5 +1,11 @@
 {% include 'admin/header.html' %} 
 <style type="text/css">
+  .show{
+    display: block
+  }
+  .hide{
+    display: block;
+  }
   .other_image{
     height:50px;
     background-color:#79aec8;
@@ -126,6 +132,87 @@
 
                                   </div>
                                 </div>
+                                <div class="form-group hide mydate" style="display: none;">
+                                  <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><br/>
+                                    Date
+                                  </div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <br/>
+
+                                    <select  class="form-control" name="day" style="width:20%;display: inline;">
+                                      {%for i in range(1,32)%}
+                                          <option value="{{i}}">
+                                            {{i}}
+                                          </option>
+                                      {%endfor%}
+                                   </select>
+
+
+                                   <select  class="form-control" name="month" style="width:33%;display: inline;">
+                                      <option value="January">
+                                        January
+                                      </option>
+                                      <option value="Febraury">
+                                        Febraury
+                                      </option>
+                                      <option value="March">
+                                        March 
+                                      </option>
+                                      <option value="April">
+                                        April
+                                      </option>
+                                      <option value="May">
+                                        May
+                                      </option>
+                                      <option value="June">
+                                        June
+                                      </option>
+                                      <option value="7">
+                                        July
+                                      </option>
+                                      <option value="August">
+                                        August
+                                      </option>
+                                      <option value="September">
+                                        September
+                                      </option>
+                                      <option value="10">
+                                        October
+                                      </option>
+                                      <option value="November">
+                                        November
+                                      </option>
+                                      <option value="December">
+                                        December
+                                      </option>
+
+                                   </select> 
+
+                                   <select  class="form-control" name="year" style="width:33%;display: inline;">
+                                      <option value="2017">
+                                        2017
+                                      </option>
+                                      <option  value="2018">
+                                        2018
+                                      </option>
+                                      <option value="2019">
+                                        2019
+                                      </option>
+                                      <option value="2020">
+                                        2020
+                                      </option>
+                                      <option value="2021">
+                                        2021
+                                      </option>
+                                      <option value="2022">
+                                        2022
+                                      </option>
+                                      <option value="2023">
+                                        2023
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
                                 <div class="form-group">
                                   <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
                                     {{ form.price.label }}
@@ -239,21 +326,37 @@
    $('#frm').attr('action','/admin/post/edit/{{p.slug}}/');
    $('#description').html("{{p.description.replace('\n', '').replace('\r','')}}");  
    $('select#category_id option[value="{{p.category_id}}"]').attr("selected","selected");
+
+    $('select[name="day"] option[value="{{p.day}}"]').attr('selected',"selected");
+   $('select[name="month"] option[value="{{p.month}}"]').attr('selected',"selected");
+   $('select[name="month"] option[value="{{p.month}}"]').attr('selected',"selected");
+   $('select[name="year"] option[value="{{p.year}}"]').attr('selected',"selected");
+
+
+
    feature_image="{{p.feature_image}}";
 
    $("#landscape").html('<img src="/static/images/images/'+feature_image+'" class="img-responsive"/>');
    $(".txt_temp_image").attr('value',feature_image);
    $("#duration").attr('value',"{{p.duration}}");
-   $("#price").attr('value',"{{p.price}}");
+   $("input#price").attr('value',"{{p.price}}");
    $("#location").attr('value',"{{p.location}}");
    $("#file").attr('value',"{{p.file}}");
    $("#landscape img").addClass("img-responsive");
    $('#keyword').html("{{p.keyword.replace('\n', '').replace('\r','')}}"); 
+
+
    //Load other images:
    loadOldImages("{{p.images}}");
    $("#short_description").html("{{p.short_description}}");
    $("#price").attr('value',"{{p.price}}");
    $("#map").html("{{p.map}}");
+
+   if($('select[id="category_id"] option:selected').text().trim()==='Upcomming'){
+    $('.mydate').removeClass('hide');
+    $('.mydate').addClass('show');
+  }
+
  </script>
 {% endfor %}
 <script type="text/javascript">
@@ -304,4 +407,21 @@ $('input#feature_image').change(function(){
 $('img#feature_image').click(function(){
   $("input#feature_image").click();
 });
+
+
+// control date month year for upcomming only
+
+
+$('select[id="category_id"]').change(function(){
+  if($('select[id="category_id"] option:selected').text().trim()==='Upcomming'){
+    $('.mydate').removeClass('hide');
+    $('.mydate').addClass('show');
+  }
+  else{
+    $('.mydate').removeClass('show');
+    $('.mydate').addClass('hide');
+  }
+});
 </script>
+
+{% include 'admin/footer.html' %} 

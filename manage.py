@@ -589,7 +589,7 @@ def admin_post_add(slug=""):
 			   				price=0
 			   			else:
 			   				price=int(request.form["price"])
-		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"],request.form['keyword'])
+		   				obj=Post(request.form['title'],request.form['description'],request.form['category_id'],filename,request.cookies.get('blog_id'),0,images,price,request.form["map"],request.form["short_description"],request.form['keyword'],request.form['day'],request.form['month'],int(request.form['year']))
 			        	status=Post.add(obj)
 				        if not status:
 				            flash("Post added successfully")
@@ -629,7 +629,7 @@ def admin_post_add(slug=""):
 				   		images=images.replace('$$$$$$$$$$','$$$$$')
 				   		#end keep old images
 				   		# return old_images
-	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'price':request.form["price"],'short_description':request.form["short_description"],'map':request.form["map"],'keyword':request.form['keyword'] })
+	   					obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],"category_id":request.form['category_id'],'feature_image':filename,'images':images,'price':request.form["price"],'short_description':request.form["short_description"],'map':request.form["map"],'keyword':request.form['keyword'],'day':request.form['day'],'month':request.form['month'],'year':int(request.form['year']) })
 	   					status = db.session.commit()
 		   				if not status:
 		   					flash("Post updated successfully")
@@ -637,7 +637,7 @@ def admin_post_add(slug=""):
 		   			for post in obj:
 		   				tempFileName=post.feature_image
 	   				filename=tempFileName
-	   				obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],'category_id':request.form['category_id'],'feature_image':filename ,'keyword':request.form['keyword']})
+	   				obj.update({"slug" : slugify(request.form['title']) , "title" : request.form['title'],'description':request.form['description'],'category_id':request.form['category_id'],'feature_image':filename ,'keyword':request.form['keyword'],'day':request.form['day'],'month':request.form['month'],'year':int(request.form['year'])})
 	   				status = db.session.commit()
 	   				if not status:
 	   					flash("Post updated was successfully")

@@ -17,6 +17,63 @@
 
 <section class="container-fluid" id="section2">
     <div class="container " style="max-width: 900px;">
+    
+    {%if posts_bottom.count()>0%}
+        <center>
+        	<h1 class="row-space-1">Upcoming tour</h1>
+        	<center><hr class="hrActivities"></center>
+        	<br>
+        </center>
+        {%endif%}
+        <div class="row section-box1">
+        	{%for post in posts_bottom %}
+           	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
+           		<a href="/{{post.slug}}">
+           			<div class="TitleBack">
+	           		<div style='background: url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small1">
+					</div>
+						<center><div class="date">
+							<div class="dateBack">
+								<h6 class="month">May</h6>
+							</div>
+							<div class="dayBack">
+								<h6 class="day">20</h6>
+							</div>
+						</div></center>
+						<h6 class="IndexTitle1">{{post.title}}</h6>
+					</div>
+				</a>
+           	</div>
+           	{%endfor%}
+        </div>
+
+    <div class="row">
+    	<center><h1 class="row-space-1">Specialist Tour</h1>
+    	<hr class="hrTour">
+    	</center>
+    </div>
+
+        <div class="row section-box1">
+           	{%for post in posts_top%}
+           	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
+           		<a href="/{{post.slug}}">
+	           		<div style='background: url("/static/images/images/{{post.feature_image}}");background-size: cover;' class="bg-overlay-small" >
+	           		<h6 class="IndexTitle">{{post.title}}</h6>
+					</div>
+				</a>
+           	</div>
+           	{%if loop.index%3==0%}
+           		<div class="clearfix"></div>
+           	{%endif%}
+           	{%endfor%}
+           	
+        </div>
+    </div>
+    <!--/container-->
+</section>
+
+<section class="container-fluid" id="section2">
+    <div class="container " style="max-width: 900px;">
     	{%for post in slide%}
     	{%set arr_images=post.images.split("$$$$$")%}
         <div class="row section-slide hidden-xs ">
@@ -107,6 +164,8 @@
     </div>
     <!--/container-->
 </section>
+
+
 <!-- <section class="container-fluid fluid1" id="section6">
 	<div class="container">
 		<center>
