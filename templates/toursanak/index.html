@@ -18,13 +18,13 @@
 <section class="container-fluid" id="section2">
     <div class="container " style="max-width: 900px;">
     
-    {%if posts_bottom.count()>0%}
+    {%if upcomings.count()>0%}
         <center>
         	<h1 class="row-space-1">Upcoming tours</h1>
         	<center><hr class="hrActivities"></center>
         	<br>
         </center>
-        {%endif%}
+    {%endif%}
         <div class="row section-box1">
         	{%for post in upcomings %}
            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
