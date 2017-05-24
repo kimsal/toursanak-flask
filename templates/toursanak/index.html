@@ -20,24 +20,24 @@
     
     {%if posts_bottom.count()>0%}
         <center>
-        	<h1 class="row-space-1">Upcoming tour</h1>
+        	<h1 class="row-space-1">Upcoming tours</h1>
         	<center><hr class="hrActivities"></center>
         	<br>
         </center>
         {%endif%}
         <div class="row section-box1">
-        	{%for post in posts_bottom %}
+        	{%for post in upcomings %}
            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 padding-overlay no">
            		<a href="/{{post.slug}}">
            			<div class="TitleBack">
-	           		<div style='background: url("{{post.feature_image}}");background-size: cover;' class="bg-overlay-small1">
+	           		<div style='background: url("/static/images/images/{{post.feature_image}}");background-size: cover;' class="bg-overlay-small1">
 					</div>
 						<center><div class="date">
 							<div class="dateBack">
-								<h6 class="month">May</h6>
+								<h6 class="month">{{post.month}}</h6>
 							</div>
 							<div class="dayBack">
-								<h6 class="day">20</h6>
+								<h6 class="day">{{post.day}}</h6>
 							</div>
 						</div></center>
 						<h6 class="IndexTitle1">{{post.title}}</h6>
@@ -48,7 +48,7 @@
         </div>
 
     <div class="row">
-    	<center><h1 class="row-space-1">Specialist Tour</h1>
+    	<center><h1 class="row-space-1">Specialist Tours</h1>
     	<hr class="hrTour">
     	</center>
     </div>

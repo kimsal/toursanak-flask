@@ -1139,7 +1139,9 @@ def index(pagination=1):
 	locations=Location.query.order_by(Location.id.desc()).all()
 	events=Event.query.order_by(Event.id.desc()).all()
 	members=Member.query.order_by(Member.id.desc()).all()
-	return render_template(template+'/index.html',slide=slide,members=members,events=events,locations=locations,form=form,page_name='home',posts_top=posts_top,home_posts=home_posts,posts_bottom = posts_bottom,pagin=int(pagin),current_pagin=int(pagination))
+	upcomings = Post.query.join(Category).filter(Category.name=="Upcoming").all()
+	# return str(upcomings.count())
+	return render_template(template+'/index.html',upcomings=upcomings,slide=slide,members=members,events=events,locations=locations,form=form,page_name='home',posts_top=posts_top,home_posts=home_posts,posts_bottom = posts_bottom,pagin=int(pagin),current_pagin=int(pagination))
 
 @app.route('/booking/<slug>')
 @app.route('/booking/<slug>/')
